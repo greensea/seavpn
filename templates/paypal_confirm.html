@@ -1,0 +1,21 @@
+{include file='header.html'}
+
+<div class="tip">
+	<div class="tiptitle">{_("Payment successed")}</div>
+	<div>
+		<p>{_("Setting up the service you purchased, please wait...")}</p>
+		<p>{_("If your have any problem, please contact us")}</p>
+		<p>{_("If browser stop responding, <a href='{$url}'>please click me</a>")}</p>
+	</div>
+	
+	<script type="text/javascript">
+	function redirect() {
+		window.location = '{$url}';
+	}
+	setTimeout("redirect()", 2000);
+	</script>
+	
+	
+</div>
+
+{include file='footer.html'}

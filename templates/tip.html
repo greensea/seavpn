@@ -1,0 +1,25 @@
+{include file="header.html"}
+{append var="css" value="css/tip.css"}
+
+<div class="tip">
+	<div class="tiptitle">{$tip_title}</div>
+	<div class="tipmsg">{$tip_msg}</div>
+	
+	{if $redirect_url != ""}
+	<a href="{$redirect_url}">{_("Click here to continue")}</a>
+		
+		{if $redirect_delay}
+		<script type="text/javascript">
+		function redirect() {
+			window.location = "{$redirect_url}";
+		}
+		setTimeout("redirect()", {$redirect_delay});
+		</script>
+		{/if}
+		
+	{/if}
+	
+	
+</div>
+
+{include file="footer.html"}

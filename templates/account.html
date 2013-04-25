@@ -1,0 +1,22 @@
+{include file="header.html"}
+
+<h3>{_("My VPN account")}</h3>
+{if {$vpns|count} > 0}
+	{foreach $vpns as $vpn}
+	<div class="cell">
+		<div>{_("VPN username: {$vpn.username}")}</div>
+		<div>{_("VPN password: {$vpn.password}")}</div>
+		
+		<div>{_("Usage statistic of this month:")}</div>
+		<div>{_("In: {$vpn.stat_monthly.inbandstr} Out: {$vpn.stat_monthly.outbandstr} Total: {$vpn.stat_monthly.usedbandstr}")}</div>
+		<div>{_("Used {$vpn.stat_monthly.percentused}% of {$vpn.totalbandstr}")}</div>
+		<div>{_("Total online time: {$vpn.stat_monthly.onlinetimestr}")}</div>
+	</div>
+	{/foreach}
+{else}
+	<div class="buyone">
+		{_("You don't have any VPN account yet, <a href='vpn_buy.php'>click here to buy one</a>. Remember you can pay any cent for it if you have enough credits.")}
+	</div>
+{/if}
+
+{include file="footer.html"}

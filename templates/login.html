@@ -1,0 +1,31 @@
+{append var="css" value="css/login.css"}
+
+{include file="header.html"}
+
+{if $error_msg != ""}
+<div class="error">{$error_msg}</div>
+{/if}
+
+<form action="{$SCRIPT_NAME}?action=chk" method="post" class="login">
+	<div>{_("Email address:")}</div>
+	<div>
+		<input type="text" name="email" value="{$email}" />
+	</div>
+	
+	<div>{_("Password:")}</div>
+	<div>
+		<input type="password" name="loginpass" />
+	</div>
+	
+	<div class="submitform">
+		<input type="submit" value="{_('Login')}" />
+		<!--
+		<label for="remember">
+			<input type="checkbox" name="remember" id="remember"/>
+			{_("Remember me")}
+		</label>
+		-->
+	</div>
+</form>
+
+{include file="footer.html"}

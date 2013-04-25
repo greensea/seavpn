@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+	<head>
+		<title>{$title}</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="css/main.css" type="text/css" media="all" />
+		
+		{foreach $css as $item}
+		<link rel="stylesheet" href="{$item}" type="text/css" media="all" />
+		{/foreach}
+		
+		{foreach $js as $item}
+		<script type="text/javascript" src="{$item}" />
+		{/foreach}
+	</head>
+	<body>
+
+		<div class="barner">
+			Sea<span style="logo">VPN</span>
+		</div>
+
+		<nav>
+			{if $user.email != ''}
+			<a href="#">{$user.email}</a>
+			<a href="logout.php">{_("Log Out")}</a>
+			{else}
+			<a href="login.php">{_("Log In")}</a>
+			<a href="reg.php">{_("Register")}</a>
+			{/if}
+			
+			<a href="account.php">{_("My VPN")}</a>
+			<a href="about.php">{_("About")}</a>
+		</nav>

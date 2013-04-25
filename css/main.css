@@ -1,0 +1,18 @@
+html {
+	width: 80%;
+	margin-left: 10%;
+}
+body {
+	font-size: 1rem;
+}
+
+nav {
+	margin: 1rem 0;
+}
+
+.barner {
+	font-size: 3rem;
+}
+.barner .logo {
+	font-weight: bold;
+}

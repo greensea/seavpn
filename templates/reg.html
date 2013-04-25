@@ -1,0 +1,28 @@
+{include file="header.html"}
+
+{if $error_msg != ""}
+<div class="error">{$error_msg}</div>
+{/if}
+
+<form action="{$SCRIPT_NAME}?action=save" method="post" class="login">
+	<div>{_("Email address:")}</div>
+	<div>
+		<input type="text" name="email" value="{$email}" />
+	</div>
+	
+	<div>{_("Password:")}</div>
+	<div>
+		<input type="password" name="loginpass" />
+	</div>
+	
+	<div>{_("Confirm password:")}</div>
+	<div>
+		<input type="password" name="loginpass2" />
+	</div>
+	
+	<div class="submitform">
+		<input type="submit" value="{_('Register')}" />
+	</div>
+</form>
+
+{include file="footer.html"}
