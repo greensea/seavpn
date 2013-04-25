@@ -1,28 +1,32 @@
 {include file="header.html"}
 
-{if $error_msg != ""}
-<div class="error">{$error_msg}</div>
-{/if}
+<div class="submitform">
+	<div class="formtitle">{_("Register")}</div>
+	
+	{if $error_msg != ""}
+	<div class="submiterror">{$error_msg}</div>
+	{/if}
 
-<form action="{$SCRIPT_NAME}?action=save" method="post" class="login">
-	<div>{_("Email address:")}</div>
-	<div>
-		<input type="text" name="email" value="{$email}" />
-	</div>
-	
-	<div>{_("Password:")}</div>
-	<div>
-		<input type="password" name="loginpass" />
-	</div>
-	
-	<div>{_("Confirm password:")}</div>
-	<div>
-		<input type="password" name="loginpass2" />
-	</div>
-	
-	<div class="submitform">
-		<input type="submit" value="{_('Register')}" />
-	</div>
-</form>
+	<form action="{$SCRIPT_NAME}?action=save" method="post" class="login">
+		<div class="desc">{_("Email address:")}</div>
+		<div>
+			<input type="text" name="email" value="{$email}" class="inputtext" />
+		</div>
+		
+		<div class="desc">{_("Password:")}</div>
+		<div>
+			<input type="password" name="loginpass" class="inputtext" />
+		</div>
+		
+		<div class="desc">{_("Confirm password:")}</div>
+		<div>
+			<input type="password" name="loginpass2" class="inputtext" />
+		</div>
+		
+		<div class="submitform">
+			<input type="submit" value="{_('Register')}" />
+		</div>
+	</form>
+</div>
 
 {include file="footer.html"}

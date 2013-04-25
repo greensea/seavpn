@@ -1,13 +1,40 @@
 html {
 	width: 80%;
 	margin-left: 10%;
+	background-color: #D2E6FF;
 }
 body {
 	font-size: 1rem;
+	box-shadow: 2px 2px 15px #000000;
+	background-color: #ffffff;
+	margin: 0;
+	height: 100%;
+	padding: 1rem;
+	border-radius: 5px;
 }
-
+a {
+	text-decoration: none;
+}
 nav {
 	margin: 1rem 0;
+	background-image: url("../imgs/nav_bg.png");
+	background-repeat: repeat-x;
+	line-height: 45px;
+	border-radius: 5px;
+	padding: 0 2rem;
+}
+nav a {
+	height: 45px;
+	font-weight: bold;
+	color: #fff;
+	margin: 1rem;
+	padding: 0 10px;
+	text-shadow: 1px 1px 1px #003;
+	transition: all .1s linear .1s;
+}
+nav a:hover {
+	text-shadow: none;
+	color: #afa;
 }
 
 .barner {
@@ -15,4 +42,57 @@ nav {
 }
 .barner .logo {
 	font-weight: bold;
+}
+
+
+.submitform {
+	text-align: center;
+}
+.submitform .submiterror {
+	color: #f00;
+	border: ##FF666F;
+	border-radius: 3px;
+	padding: 5px 0 5px 15px;
+}
+
+.submitform .formtitle {
+	color: #888;
+	font-size: 2.5rem;
+	border-bottom: 1px inset #888;
+	margin: 0.5rem 0 1rem 0;
+	padding-bottom: 0.3rem;
+	width: 40%;
+	margin-left: 30%;
+	text-shadow: 1px 1px 2px #999;
+	opacity: 0.8;
+}
+
+form {
+	width: 26%;
+	min-width: 150px;
+	margin-left: 37%;
+	text-align: left;
+}
+
+form .desc {
+
+}
+
+form input {
+	margin: 0.3rem 0 0.6rem 0;
+}
+
+form .inputtext {
+	width: 100%;
+	transition: all .2s ease-in .01s;
+}
+form .inputtext:focus {
+	box-shadow: 0 0 8px #8DFF97;
+}
+
+
+
+.footer {
+	margin-bottom: -1.5rem;
+	margin-top: 1.5rem;
 }
