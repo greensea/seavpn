@@ -1,0 +1,28 @@
+.tip {
+	text-align: center;
+	width: 50%;
+	margin-left: 25%;
+	min-width: 500px;
+}
+
+.tiptitle {
+	font-size: 1.5em;
+	border-bottom: 1px inset #5B41D7;
+	padding-bottom: 0.5rem;
+}
+
+.tipmsg {
+	text-align: left;
+	padding-left: 2em;
+	margin: 1.5em 0;
+	
+	
+	background-color: #EEF7FF;
+	border-radius: 10px 10px 10px 10px;
+	color: #5555FF;
+	margin: 1.5em 0;
+	padding: 1em;
+	text-align: left;
+	text-shadow: -1px -1px 0 #DDDDFF;
+	
+}
