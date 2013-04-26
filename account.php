@@ -2,6 +2,8 @@
 require_once('includes/header.php');
 require_once('includes/vpn.php');
 
+$smarty->assign('title', _('My VPN'));
+
 if (user_isonline() == false) {
 	account_login();
 }

@@ -1,0 +1,35 @@
+{include file="header.html"}
+
+{if $error_msg != ""}
+<div class="error">{$error_msg}</div>
+{/if}
+
+<form action="{$SCRIPT_NAME}?action=save" method="post" class="login">
+	<div>{_("VPN username: ")}</div>
+	<div>
+		<input type="text" name="username" value="{$username}" />
+	</div>
+	<div class="tip">{_("Username can not be modify after purchase")}</div>
+	
+	<div>{_("VPN password:")}</div>
+	<div>
+		<input type="text" name="password" value="{$password}" />
+	</div>
+	<div class="tip">{_("You can use an easy password, in convenience for remember and enter.")}</div>
+	
+	<div>{_("Service:")}</div>
+	<div>
+		{foreach $services as $service}
+		<label for="serviceid_{$service.id}">
+			<input type="radio" name="serviceid" id="serviceid_{$service.id}" value="{$service.id}" />
+			{$service.desc|gettext}
+		</label>
+		{/foreach}
+	</div>
+	
+	<div class="submitform">
+		<input type="submit" value="{_('Buy it')}" />
+	</div>
+</form>
+
+{include file="footer.html"}

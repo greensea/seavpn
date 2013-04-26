@@ -95,7 +95,7 @@ function vpn_mod($name, $param) {
 	
 	foreach($param as $key => $value) {
 		$qkey = addslashes($key);
-		$qvalue = addslashes($qvalue);
+		$qvalue = addslashes($value);
 		
 		$sql = "UPDATE vpnaccount SET $qkey='$qvalue' WHERE username='$qname'";
 		
@@ -119,7 +119,7 @@ function vpn_mod($name, $param) {
  */
 function vpn_add($name, $pass, $uid, $serviceid = -1) {
 	$qname = addslashes($name);
-	$qpass = addslashes($qpass);
+	$qpass = addslashes($pass);
 	$uid = (int)$uid;
 	$ts = time();
 	
@@ -139,12 +139,12 @@ function vpn_add($name, $pass, $uid, $serviceid = -1) {
 	if ($serviceid > 0) {
 		$serviceid = (int)$serviceid;
 		
-		$service = db_quick_fetch('service', " WHERE id=$servicdid");
+		$service = db_quick_fetch('service', " WHERE id=$serviceid");
 		if (count($service) <= 0) {
 			vpn_log("No such service id $serviceid");
 		}
 		else {
-			vpn_mod($name, array('trafficquota' => $service['trafficquota']));
+			vpn_mod($name, array('trafficquota' => $service[0]['trafficquota']));
 		}
 	}
 	
@@ -193,6 +193,16 @@ function vpn_renew($name, $quatity) {
 	
 	vpn_log("Renew VPN account validate time to " . strftime('Y-n-j G:i:s', $modify['validfrom']) . ' ~ ' . strftime('Y-n-j G:i:s', $modify['validto']));
 	
+	
+	/// 如果 RADIUS 中无此用户，则增加此用户
+	$qpass = addslashes($account['password']);
+	
+	$res = db_quick_fetch('radius.radcheck', "WHERE username='$qname'");
+	if (count($res) == 0) {
+		$sql = "INSERT INTO radius.radcheck (op, attribute, user, password) VALUES (':=', 'Cleartext-Password', '$qname', '$qpass')";
+		db_query($sql);
+	}
+	
 	return true;
 }
 
@@ -211,7 +221,7 @@ function vpn_list($uid = -1) {
 	if ($uid >= 0) {
 		$sql .= " WHERE uid=$uid";
 	}
-	echo $sql . "<hr>";
+
 	$res = db_query($sql);
 	if ($res == false) {
 		return false;
@@ -234,7 +244,7 @@ function vpn_list($uid = -1) {
 function vpn_afford($serviceid, $email) {
 	$serviceid = (int)$serviceid;
 	
-	$res = db_quick_fetch('service', 'WHERE id=$serviceid');
+	$res = db_quick_fetch('service', "WHERE id=$serviceid");
 	if (count($res) <= 0) {
 		vpn_log("No such service id $serviceid");
 		return false;
@@ -246,6 +256,6 @@ function vpn_afford($serviceid, $email) {
 		return false;
 	}
 	
-	return ($user['balance'] + $user['credit'] >= $res['price']);
+	return ($user['balance'] + $user['credit'] >= $res[0]['price']);
 }
 ?>

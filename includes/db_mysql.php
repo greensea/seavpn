@@ -7,6 +7,7 @@ function db_connect() {
 	
 	mysql_connect(DB_HOST, DB_USER, DB_PASS) or die(mysql_error());
 	mysql_select_db(DB_NAME) or die(mysql_error());
+	mysql_query('SET NAMES `utf8`');
 	
 	$db_connected = true;
 }
@@ -24,8 +25,14 @@ function db_query($sql) {
 
 	$ret = mysql_query($sql);
 	if (!$ret) {
+		echo 'MySQL error: ' . mysql_error() . "<br /> SQL: $sql <br />";
+		
 		$bc = debug_backtrace();
-		echo 'MySQL error (' . basename($bc[0]['file']) . ":{$bc[0]['line']}): " . mysql_error() . "<br /> SQL: $sql";
+		for ($i = 0; $i < count($bc); $i++) {
+			echo '(' . basename($bc[$i]['file']) . ":{$bc[$i]['line']})&lt;--";
+		}
+		echo '{root}';
+		
 		die();
 	}
 	

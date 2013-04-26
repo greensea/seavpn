@@ -39,7 +39,7 @@ function order_new($sid, $amount = -1) {
 		$amount = $arr['price'] * 100;	/// 数据库中的金额单位是（分）
 	}
 	
-	$sql = "INSERT INTO order (uid, createtime, amount) VALUES ($uid, $ts, $amount)";
+	$sql = "INSERT INTO `order` (uid, createtime, amount) VALUES ($uid, $ts, $amount)";
 	$res = db_query($sql);
 	
 	if ($res === false) {
@@ -135,7 +135,7 @@ function order_dopayment($orderid) {
 	
 	$ts = time(NULL);
 	
-	$sql = "UPDATE order SET paidtime=$ts WHERE id=$orderid";
+	$sql = "UPDATE `order` SET paidtime=$ts WHERE id=$orderid";
 	$res = db_query($sql);
 	if ($res == false) {
 		vpn_log('Warning: update order table fail after done payment with order id ' . $orderid);
@@ -156,15 +156,16 @@ function order_dopayment($orderid) {
 function order_delivery($orderid) {
 	$orderid = (int)$orderid;
 	
-	$order = db_quick_fetch('order', "WHERE id=$orderid");
-	if (count($order) <= 0) {
+	$orders = db_quick_fetch('`order`', "WHERE id=$orderid");
+	if (count($orders) <= 0) {
 		vpn_log("No such order id $orderid");
 		return false;
 	}
+	$order = $orders[0];
 	
 	/// FIXME: 这里应该增加失败回滚操作
 	
-	$sql1 = "UPDATE order SET delivery=1 WHERE id=$orderid";
+	$sql1 = "UPDATE `order` SET delivery=1 WHERE id=$orderid";
 	$sql2 = "UPDATE account SET balance=balance-{$order['amount']} WHERE id={$order['uid']}";
 	
 	db_query($sql1);

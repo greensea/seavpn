@@ -23,9 +23,9 @@ function paypal_new_payment($orderid, $amount) {
 	/// 发送请求
 	sprintf($amtstr, '%0.2f', $amount);
 	
-	$arr = paypal_nvp_request(array('method' => 'SetExpressCheckout'
-									'paymentrequest_o_amt' => $amtstr)
-									'returnurl' => PAYPAL_RETURNURL . '?orderid=' . $orderid);
+	$arr = paypal_nvp_request(array('method' => 'SetExpressCheckout',
+									'paymentrequest_o_amt' => $amtstr,
+									'returnurl' => PAYPAL_RETURNURL . '?orderid=' . $orderid));
 	
 	if ($res === false) {
 		return false;
@@ -86,7 +86,7 @@ function paypal_do_payment($token, $amount) {
 									'paymentinfo_o_paymentaction' => 'Sale',
 									'paymentrequest_o_amt' => $amtstr,
 									'payerid' => $payerid,
-									'token' => $token,
+									'token' => $token));
 									
 	if ($arr === false) {
 		vpn_log('Fail while request PayPal NVP on do payment');
@@ -140,7 +140,7 @@ function paypal_getstr2array($str) {
 	$res = getstr2array($str);
 	$ret = array();
 	
-	for ($res as $key => $value) {
+	foreach ($res as $key => $value) {
 		$ret[strtolower($key)] = $value;
 	}
 	
