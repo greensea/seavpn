@@ -4,7 +4,11 @@
 <h3>{_("My VPN account")}</h3>
 {if {$vpns|count} > 0}
 	{foreach $vpns as $vpn}
-	<div class="cell">
+	<div class="vpn">
+		<div class="action">
+			<a href="account_renew.php?vpnid={$vpn.id}">{_("Renew")}</a>
+		</div>
+		
 		<div>{_("VPN username: {$vpn.username}")}</div>
 		<div>{_("VPN password: {$vpn.password}")}</div>
 		
@@ -12,6 +16,8 @@
 		<div>{_("In: {$vpn.stat_monthly.inbandstr} Out: {$vpn.stat_monthly.outbandstr} Total: {$vpn.stat_monthly.usedbandstr}")}</div>
 		<div>{_("Used {$vpn.stat_monthly.percentused}% of {$vpn.totalbandstr}")}</div>
 		<div>{_("Total online time: {$vpn.stat_monthly.onlinetimestr}")}</div>
+		<div>{_("Expire before {$vpn.validtostr}, about {$vpn.daysleft} days left")}</div>
+		
 	</div>
 	{/foreach}
 {else}

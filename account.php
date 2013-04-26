@@ -45,6 +45,10 @@ function account_main() {
 		$arr['onlinetimestr'] = time2readable($arr['sessiontime']);
 		
 		$vpn[$key]['totalbandstr'] = size2readable($value['trafficquota']);
+		$vpn[$key]['validfromstr'] = strftime('%Y-%m-%d %H:%M', $vpn[$key]['validfrom']);
+		$vpn[$key]['validtostr'] = strftime('%Y-%m-%d %H:%M', $vpn[$key]['validto']);
+		$vpn[$key]['daysleft'] = ceil(($vpn[$key]['validto'] - $vpn[$key]['validfrom']) / 86400);
+		
 		
 		$vpn[$key]['stat_monthly'] = $arr;
 	}

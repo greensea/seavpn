@@ -1,0 +1,48 @@
+.vpn {
+	background-color: #EAF5FF;
+	border-radius: 10px;
+	box-shadow: 1px 1px 8px #010;
+	margin: 0 2% 2% 2%;
+	padding: 1em;
+	
+	overflow: hidden;
+	
+	float: left;
+	width: 40%;
+	
+}
+.vpn div {
+	line-height: 1.5em;
+}
+
+.vpn .action {
+	float: right;
+	position: relative;
+	transition: all 0.1s ease-in 0.01s;
+	text-align: right;
+	margin-right: -15em;
+	min-width: 15em;
+}
+.vpn .action a {
+	line-height: 2em;
+	padding: 0.5em 2em 0.5em 1em;
+	border-radius: 10px;
+	transition: all 0.3s ease-in 0.01s;
+	background-color: #C4D0E6;
+	display: block;
+	font-weight: bold;
+	margin-top: 2px;
+}
+.vpn .action:hover {
+	margin-right: -2em;
+	min-width: 2em;
+}
+.vpn .action a:hover {
+	background-color: #4FC573;
+	
+}
+
+
+.footer {
+	clear: both;
+}

@@ -193,7 +193,7 @@ function vpn_renew($name, $quatity) {
 	}
 	vpn_mod($name, $modify);
 	
-	vpn_log("Renew VPN account `$name' validate time to " . strftime('%Y-%n-%j %G:%i:%s', $modify['validfrom']) . ' ~ ' . strftime('%Y-%n-%j %G:%i:%s', $modify['validto']));
+	vpn_log("Renew VPN account `$name' validate time to " . strftime('%Y-%m-%d %H:%M:%S', $modify['validfrom']) . ' ~ ' . strftime('%Y-%n-%j %G:%i:%s', $modify['validto']));
 	
 	
 	/// 如果 RADIUS 中无此用户，则增加此用户
