@@ -116,7 +116,6 @@ function user_isonline() {
 		return false;
 	}
 	
-	
 	$sid = $_COOKIE[VPNNS . 'sid'];
 
 	if (!cache_isset("sid_$sid")) {
@@ -124,6 +123,12 @@ function user_isonline() {
 	}
 	
 	$user = cache_get("sid_$sid");
+	
+	/// 如果用户在线就更新用户信息
+	if ($user != false) {
+		$user = user_get($user['email']);
+		cache_set("sid_$sid", $user);
+	}
 	
 	return $user;
 }

@@ -4,7 +4,7 @@ html {
 	background-color: #D2E6FF;
 }
 body {
-	font-size: 1rem;
+	font-size: 14px;
 	box-shadow: 2px 2px 15px #000000;
 	background-color: #ffffff;
 	margin: 0;
@@ -17,6 +17,7 @@ a {
 	outline: none;
 }
 nav {
+	font-size: 1rem;
 	margin: 1rem 0;
 	background-image: url("../imgs/nav_bg.png");
 	background-repeat: repeat-x;
@@ -52,14 +53,12 @@ nav a:hover {
 .submitform .submiterror {
 	color: #f00;
 	text-shadow: -1px -1px 0 #fcc;
-	border: ##FF666F;
 	border-radius: 3px;
 	background-color: #FFEFEE;
 	margin: 1.5em 30% 1.5em 30%;
 	width: 40%;
 	padding: 0.8em;
 	text-align: left;
-	
 }
 
 .submitform .formtitle {
@@ -82,11 +81,12 @@ form {
 }
 
 form .desc {
-
+	margin-top: 0.6rem;
+	font-weight: bold;
 }
 
 form input {
-	margin: 0.3rem 0 0.6rem 0;
+	margin: 0.3rem 0 0.3rem 0;
 }
 
 form .inputtext {
@@ -97,6 +97,35 @@ form .inputtext:focus {
 	box-shadow: 0 0 8px #8DFF97;
 }
 
+
+.cell .title {
+	color: #888;
+	font-size: 1.5rem;
+	border-bottom: 1px inset #888;
+	margin: 0.5rem 0 1rem 0;
+	padding-bottom: 0.3rem;
+	width: 44%;
+	margin-left: 28%;
+	text-shadow: 1px 1px 2px #999;
+	opacity: 0.8;
+	padding-left: 2%;
+}
+.cell .tip {
+	color: #33f;
+	text-shadow: -1px -1px 0 #ccf;
+	border-radius: 8px;
+	background-color: #DEEEFD;
+	margin: 1.5em 30% 1.5em 30%;
+	width: 40%;
+	padding: 0.8em;
+	text-align: left;
+}
+.cell .subcell {
+	width: 40%;
+	min-width: 150px;
+	margin-left: 30%;
+	text-align: left;
+}
 
 
 .footer {

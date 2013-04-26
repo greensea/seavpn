@@ -55,7 +55,9 @@ function db_insert_id() {
  * 快速获取一个表的查询结果，并以数组形式返回
  */
 function db_quick_fetch($table, $clause) {
-	$sql = "SELECT * FROM $table $clause";
+	$table = addslashes($table);
+	
+	$sql = "SELECT * FROM `$table` $clause";
 	
 	$res = db_query($sql);
 	if ($res == false) {
@@ -70,4 +72,21 @@ function db_quick_fetch($table, $clause) {
 	return $ret;
 }
 
+/**
+ * 快速修改数据表
+ * 
+ * @param $table	数据表
+ * @param $clause	查询条件
+ * @param array()	要修改的字段和值，如 array('field1' => 'value1', 'field2' => 'value2')
+ */
+function db_quick_update($table, $clause, $kv) {
+	$table = addslashes($table);
+	
+	foreach ($kv as $key => $value) {
+		$key = addslashes($key);
+		$value = addslashes($value);
+		$sql = "UPDATE `$table` SET `$key`='$value' $clause";
+		db_query($sql);
+	}
+}
 ?>

@@ -2,7 +2,7 @@
 require_once('includes/header.php');
 require_once('includes/vpn.php');
 
-$smarty->assign('title', _('My VPN'));
+$smarty->assign('title', _('My Account'));
 
 if (user_isonline() == false) {
 	account_login();
@@ -17,7 +17,7 @@ function account_login() {
 	global $smarty;
 	
 	$smarty->assign('tip_title', _('Please login'));
-	$smarty->assign('tip_msg', _('You have to login before access My VPN page'));
+	$smarty->assign('tip_msg', _('You have to login before access My Account page'));
 	$smarty->assign('redirect_url', 'login.php');
 	
 	$smarty->display('tip.html');

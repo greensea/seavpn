@@ -36,12 +36,13 @@ function order_new($sid, $amount = -1) {
 	$ts = time(NULL);
 	$uid = $user['id'];
 	if ($amount < 0) {
-		$amount = $arr['price'] * 100;	/// 数据库中的金额单位是（分）
+		$amount = $arr['price'];	/// 数据库中的金额单位是（分）
 	}
+
 	
-	$sql = "INSERT INTO `order` (uid, createtime, amount) VALUES ($uid, $ts, $amount)";
+	$sql = "INSERT INTO `order` (uid, createtime, amount, serviceid) VALUES ($uid, $ts, $amount, $sid)";
 	$res = db_query($sql);
-	
+
 	if ($res === false) {
 		return false;
 	}
@@ -59,16 +60,16 @@ function order_new($sid, $amount = -1) {
 function order_request($orderid) {
 	$orderid = (int)$orderid;
 	
-	$sql = "SELECT * FROM order WHERE id=$orderid";
+	$sql = "SELECT * FROM `order` WHERE id=$orderid";
 	
-	$res = db_query($res);
+	$res = db_query($sql);
 	if ($res == false || db_num_rows($res) == 0) {
 		vpn_log('No such order id: ' . $orderid);
 		return false;
 	}
 	
 	$arr = db_fetch_array($res);
-	$amount = $arr['amount'] * 100;
+	$amount = $arr['amount'] / 100;
 	
 	$nvp = paypal_new_payment($orderid, $amount);
 	if ($nvp == false) {
@@ -78,7 +79,7 @@ function order_request($orderid) {
 	/// 生成 PayPal 支付订单
 	
 	$token = $nvp['token'];
-	$remark = print_r($nvp);
+	$remark = print_r($nvp, true);
 	
 	$token = addslashes($token);
 	$remark = addslashes($remark);
@@ -104,7 +105,7 @@ function order_request($orderid) {
 function order_dopayment($orderid) {	
 	$orderid = (int)$orderid;
 	
-	$sql = "SELECT * FROM order LEFT JOIN payment ON order.id=payment.orderid WHERE order.id=$orderid";
+	$sql = "SELECT * FROM `order` LEFT JOIN payment ON order.id=payment.orderid WHERE order.id=$orderid";
 	
 	$res = db_query($sql);
 	if ($res == false || db_num_rows($res) == 0) {
@@ -141,7 +142,8 @@ function order_dopayment($orderid) {
 		vpn_log('Warning: update order table fail after done payment with order id ' . $orderid);
 	}
 	
-	$sql = "UPDATE account SET balance=balance+$amount WHERE uid=$uid";
+	$amountcent = $amount * 100;
+	$sql = "UPDATE account SET balance=balance+$amountcent WHERE id=$uid";
 	db_query($sql);
 	if ($res == false) {
 		vpn_log('Warning: update user(uid=$uid) balance fail');
@@ -156,21 +158,37 @@ function order_dopayment($orderid) {
 function order_delivery($orderid) {
 	$orderid = (int)$orderid;
 	
-	$orders = db_quick_fetch('`order`', "WHERE id=$orderid");
+	$orders = db_quick_fetch('order', "WHERE id=$orderid");
 	if (count($orders) <= 0) {
 		vpn_log("No such order id $orderid");
 		return false;
 	}
 	$order = $orders[0];
 	
+	$services = db_quick_fetch('service', "WHERE id IN (SELECT serviceid FROM `order` WHERE id={$order['id']})");
+	if (count($services) <= 0) {
+		vpn_log("No service correlate to order #{$order['id']}");
+		return false;
+	}
+	
 	/// FIXME: 这里应该增加失败回滚操作
 	
-	$sql1 = "UPDATE `order` SET delivery=1 WHERE id=$orderid";
-	$sql2 = "UPDATE account SET balance=balance-{$order['amount']} WHERE id={$order['uid']}";
-	
+	$sql1 = "UPDATE `order` SET delivered=1 WHERE id=$orderid";
+	$sql2 = "UPDATE account SET balance=balance-{$services[0]['price']} WHERE id={$order['uid']}";
+
 	db_query($sql1);
 	db_query($sql2);
 	
 	return true;
 }
+
+/**
+ * 将用户重定向到付款网站，之后的支付流程在付款网站后完成
+ * 
+ * @param $oid	订单编号
+ */
+function order_redirect($oid) {
+	return paypal_redirect($oid);
+}
+
 ?>

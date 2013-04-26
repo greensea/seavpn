@@ -64,6 +64,8 @@ function account_save() {
 function account_pay($name, $pass, $serviceid) {
 	global $smarty;
 	
+	$user = user_isonline();
+	
 	/// 如果账户余额足够，则直接扣款并继续操作；如果余额不足则显示付款页面，并在付款后继续操作
 	$amt = vpn_afford($serviceid, $user['email']);
 	
@@ -73,20 +75,60 @@ function account_pay($name, $pass, $serviceid) {
 	}
 	$service = $services[0];
 	
+
+	/// 创建订单
+	$order = null;
 	if ($amt < 0) {
-		/// 显示付款页面
-		$smarty->assign('amount', abs($amt));
-		$smarty->assign('service', $service);
-		$smaryt->display('order_preview.html');
+		$order = order_new($serviceid, abs($amt));
+	}
+	else {
+		$order = order_new($serviceid);
+	}
+	
+	if ($order === false) {
+		vpn_log("Can not create order($serviceid, $amt)");
+		$smarty->assign('tip_title', _('An error occur'));
+		$smarty->assign('tip_msg', _('Can not create order, please contact us for help'));
+		$smarty->display('tip.html');
 		die();
 	}
 	
-	/// 3. 账户余额足够，开通帐号，并扣账
-	vpn_renew($name, $service['validtime']);
-	order_delivery($oid);
+	/// 向 order 表中增加 VPN 帐号信息
+	$qname = addslashes($name);
+	
+	$vpns = db_quick_fetch('vpnaccount', "WHERE username='$qname'");
+	if (count($vpns) <= 0) {
+		vpn_log("No VPN username `$name' in vpnaccount table");
+	}
+	
+	db_quick_update('order', "WHERE id={$order['orderid']}", array('vpnid' => $vpns[0]['id']));
+	
+	
+	if ($amt < 0) {
+		/// 余额不足时，显示付款页面，并在付款成功后继续开通帐号操作
+		//$smarty->assign('amount', abs($amt));
+		//$smarty->assign('service', $service);
+		$url = "order_preview.php?id={$order['orderid']}";
+		header("Location: $url");
+		
+		$smarty->assign('redirect_url', $url);
+		$smarty->assign('tip_title', _('Redirect'));
+		$smarty->assign('tip_msg', _('Redirecting...'));
+		$smarty->display('tip.html');
+		die();
+	}
+	
+	
+	/// 3. 账户余额足够，开通帐号
+	print_r($name);
+	print_r($service);
+	vpn_renew($name, $service['duration']);
+	
+	/// 4. 发货（在 raidus 中设置帐号），并扣款
+	order_delivery($order['orderid']);
 	
 	$smarty->assign('tip_title', _('Success'));
-	$smarty->assign('tip_msg', _('Thank you for purchase, now you can go to My VPN page to view you VPN account'));
+	$smarty->assign('tip_msg', _('Thank you for purchase, now you can go to My Account page to view you VPN account'));
 	$smarty->assign('redirect_url', 'account.php');
 	$smarty->display('tip.html');
 }

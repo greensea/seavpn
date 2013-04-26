@@ -163,12 +163,14 @@ function vpn_renew($name, $quatity) {
 	$qname = addslashes($name);
 	
 	if ($name == '' || $quatity <= 0) {
+		vpn_log("Invalid argument: name == '' || quatity <= 0");
 		return false;
 	}
 	
 	$sql = "SELECT * FROM vpnaccount WHERE username='$qname'";
 	$res = db_query($sql);
 	if ($res == false || db_num_rows($res) <= 0) {
+		vpn_log("No user `$name' in table vpnaccount");
 		return false;
 	}
 	
@@ -191,16 +193,17 @@ function vpn_renew($name, $quatity) {
 	}
 	vpn_mod($name, $modify);
 	
-	vpn_log("Renew VPN account validate time to " . strftime('Y-n-j G:i:s', $modify['validfrom']) . ' ~ ' . strftime('Y-n-j G:i:s', $modify['validto']));
+	vpn_log("Renew VPN account `$name' validate time to " . strftime('%Y-%n-%j %G:%i:%s', $modify['validfrom']) . ' ~ ' . strftime('%Y-%n-%j %G:%i:%s', $modify['validto']));
 	
 	
 	/// 如果 RADIUS 中无此用户，则增加此用户
 	$qpass = addslashes($account['password']);
 	
-	$res = db_quick_fetch('radius.radcheck', "WHERE username='$qname'");
+	$res = db_quick_fetch('radius`.`radcheck', "WHERE username='$qname'");
 	if (count($res) == 0) {
-		$sql = "INSERT INTO radius.radcheck (op, attribute, user, password) VALUES (':=', 'Cleartext-Password', '$qname', '$qpass')";
+		$sql = "INSERT INTO radius.radcheck (op, attribute, username, value) VALUES (':=', 'Cleartext-Password', '$qname', '$qpass')";
 		db_query($sql);
+		echo $sql;
 	}
 	
 	return true;
@@ -251,11 +254,12 @@ function vpn_afford($serviceid, $email) {
 	}
 	
 	$user = user_get($email);
+
 	if ($user == false) {
 		vpn_log("No such user `$email'");
 		return false;
 	}
-	
-	return ($user['balance'] + $user['credit'] >= $res[0]['price']);
+
+	return $user['balance'] + $user['credit'] - $res[0]['price'];
 }
 ?>

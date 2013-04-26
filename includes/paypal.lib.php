@@ -21,11 +21,15 @@ function paypal_new_payment($orderid, $amount) {
 	}
 	
 	/// 发送请求
-	sprintf($amtstr, '%0.2f', $amount);
+	$amtstr = sprintf('%0.2f', $amount);
 	
 	$arr = paypal_nvp_request(array('method' => 'SetExpressCheckout',
-									'paymentrequest_o_amt' => $amtstr,
-									'returnurl' => PAYPAL_RETURNURL . '?orderid=' . $orderid));
+									'paymentrequest_0_amt' => $amtstr,
+									'reqconfirmshipping' => '0',
+									'noshipping' => '1',
+									'allownote' => '0',
+									'returnurl' => PAYPAL_RETURNURL . '?orderid=' . $orderid,
+									'cancelurl' => SITE_BASE . "order_preview.php?id=$orderid"));
 	
 	if ($res === false) {
 		return false;
@@ -80,11 +84,11 @@ function paypal_do_payment($token, $amount) {
 	/// 确认付款信息
 	
 	$amtstr = '';
-	sprintf($amtstr, '%0.2f', $amount);
+	$amtstr = sprintf('%0.2f', $amount);
 	
 	$arr = paypal_nvp_request(array('method' => 'DoExpressCheckoutPayment',
-									'paymentinfo_o_paymentaction' => 'Sale',
-									'paymentrequest_o_amt' => $amtstr,
+									'paymentinfo_0_paymentaction' => 'Sale',
+									'paymentrequest_0_amt' => $amtstr,
 									'payerid' => $payerid,
 									'token' => $token));
 									
@@ -104,6 +108,38 @@ function paypal_do_payment($token, $amount) {
 
 
 /**
+ * 将用户重定向到 PayPal 付款页面以便让用户进行付款。
+ * 注意，该函数将直接向用户浏览器发送 Location 头，用户将离开本站
+ * 
+ * @param $oid	订单编号
+ * @return	失败返回 false，成功则跳转到 PayPal 付款页面，并返回 true
+ */
+function paypal_redirect($oid) {
+	global $smarty;
+	
+	$oid = (int)$oid;
+	
+	$payments = db_quick_fetch('payment', "WHERE orderid=$oid");
+	if ($payments === false || count($payments) <= 0) {
+		vpn_log("No such order id $oid in payment table");
+		return false;
+	}
+	$payment = $payments[0];
+	
+	$url = sprintf(PAYPAL_REDIRECTURL, $payment['token']);
+	
+	header("Location: $url");
+	
+	$smarty->assign('tip_title', _('Redirect'));
+	$smarty->assign('tip_msg', _('Redirecting you to PayPal'));
+	$smarty->assign('redirect_url', $url);
+	$smarty->assign('redirect_delay', 3000);
+	$smarty->display('tip.html');
+	
+	return true;
+}
+
+/**
  * 发送一个 PayPal NVP 请求，并获取返回结果
  * @param array	Name Value Pair
  * @return array	返回的结果，N 已经转换成小写
@@ -111,23 +147,28 @@ function paypal_do_payment($token, $amount) {
 function paypal_nvp_request($nvp) {
 	$getstr = '?';
 	
-	$getstr .= 'sinature=' . urlencode(PAYPAL_APISIGN);
+	$getstr .= 'signature=' . urlencode(PAYPAL_APISIGN);
 	$getstr .= '&user=' . urlencode(PAYPAL_APIUSER);
 	$getstr .= '&pwd=' . urlencode(PAYPAL_APIPASS);
+	$getstr .= '&version=84.0';
+	
 		
 	foreach ($nvp as $k => $v) {
 		$getstr .= '&' . urlencode($k) . '=' . urlencode($v);
 	}
 	
 	$ch = curl_init(PAYPAL_APIURL . $getstr);
+	
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	
+	vpn_log('Request PayPal ==> ' . PAYPAL_APIURL . $getstr);
 	
 	$ret = curl_exec($ch);
 	if ($ret === false) {
 		vpn_log('curl_exec() fail: ' . curl_error());
 		return false;
 	}
-	
+
 	$arr = paypal_getstr2array($ret);
 	
 	return $arr;

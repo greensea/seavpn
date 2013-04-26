@@ -1,0 +1,53 @@
+{assign var="title" value={_("Confirm your order")}}
+{append var="css" value="css/order.css"}
+{include file="header.html"}
+
+<div class="cell">
+	<div class="title">{_("Confirm Order")}</div>
+	
+	{if $order.paidtime != null}
+		{assign var="tip" value=_("This order is already paid")}
+	{/if}
+	
+	{if $tip != ""}
+	<div class="tip" style="color: #080;">{$tip}</div>
+	{/if}
+	
+	<table class="subcell orderinfo">
+		<tr>
+			<td>Service: </td>
+			<td><strong>{$order.desc}</strong></td>
+		</tr>
+		<tr>
+			<td>{_("Service price: ")}</td>
+			<td>${$order.price}</td>
+		</tr>
+		<tr>
+			<td>{_("Account balance:")}</td>
+			{if $user.balance < 0}
+			<td style="color: #f00;">${$user.balance}</td>
+			{else}
+			<td>${$user.balance}</td>
+			{/if}
+		</tr>
+		<tr>
+			<td>{_("Your credit:")}</td>
+			<td>${$user.credit}</td>
+		</tr>
+		<tr>
+			<td>{_("You should pay:")}</td>
+			<td><strong>${$order.amount}</strong></td>
+		</tr>
+	</table>
+	
+	{if $order.paidtime == null}
+	<form action="order_pay.php" method="post" target="_blank">
+		<input type="hidden" name="id" value="{$order.id}" />
+		<input type="submit" value="{_('Checkout with PayPal')}" />
+	</form>
+	{/if}
+	
+	
+</div>
+
+{include file="footer.html"}

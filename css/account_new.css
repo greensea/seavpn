@@ -1,0 +1,9 @@
+.accountnewform {
+	width: 30%;
+	min-width: 150px;
+	margin-left: 35%;
+	text-align: left;
+}
+.accountnewform .inputtext {
+	width: 80%;
+}

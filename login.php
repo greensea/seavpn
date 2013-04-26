@@ -24,13 +24,8 @@ function login_main() {
 function login_check() {
 	global $smarty;
 	
-	if (!isset($_POST['email']) || !isset($_POST['loginpass'])) {
-		login_error(_('Invalid form field'));
-		die();
-	}
-	
-	$email = $_POST['email'];
-	$pass = $_POST['loginpass'];
+	$email = @$_POST['email'];
+	$pass = @$_POST['loginpass'];
 	
 	$ret = user_validate($email, $pass);
 	
