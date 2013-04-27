@@ -179,6 +179,8 @@ function order_delivery($orderid) {
 	db_query($sql1);
 	db_query($sql2);
 	
+	db_quick_update('order', "WHERE id=$orderid AND ISNULL(paidtime)", array('paidtime' => time()));
+	
 	return true;
 }
 

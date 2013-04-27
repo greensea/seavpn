@@ -120,11 +120,11 @@ function account_pay($name, $pass, $serviceid) {
 	
 	
 	/// 3. 账户余额足够，开通帐号
-	print_r($name);
-	print_r($service);
+	//print_r($name);
+	//print_r($service);
 	vpn_renew($name, $service['duration']);
 	
-	/// 4. 发货（在 raidus 中设置帐号），并扣款
+	/// 4. 发货（扣款）
 	order_delivery($order['orderid']);
 	
 	$smarty->assign('tip_title', _('Success'));

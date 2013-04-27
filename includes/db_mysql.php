@@ -22,6 +22,8 @@ function db_query($sql) {
 	if (!$db_connected) {
 		db_connect();
 	}
+	
+	//echo "<p class='sql'>$sql</p>\n";
 
 	$ret = mysql_query($sql);
 	if (!$ret) {

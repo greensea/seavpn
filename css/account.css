@@ -18,7 +18,7 @@
 .vpn .action {
 	float: right;
 	position: relative;
-	transition: all 0.1s ease-in 0.01s;
+	transition: all 0.3s ease 0.1s;
 	text-align: right;
 	margin-right: -15em;
 	min-width: 15em;
