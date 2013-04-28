@@ -203,7 +203,6 @@ function vpn_renew($name, $quatity) {
 	if (count($res) == 0) {
 		$sql = "INSERT INTO radius.radcheck (op, attribute, username, value) VALUES (':=', 'Cleartext-Password', '$qname', '$qpass')";
 		db_query($sql);
-		echo $sql;
 	}
 	
 	return true;

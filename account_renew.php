@@ -53,9 +53,9 @@ if ($amt < 0) {
 
 
 /// 3. 账户余额足够，续费
-//print_r($name);
+//print_r($account);
 //print_r($service);
-vpn_renew($name, $service['duration']);
+vpn_renew($account['username'], $service['duration']);
 
 /// 4. 发货（扣款）
 order_delivery($order['orderid']);
