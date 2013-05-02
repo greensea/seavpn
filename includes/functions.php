@@ -75,21 +75,21 @@ function time2readable($ts) {
     $ret = '';
 
     if ($ts >= 86400) {
-        $ret .= sprintf(_('%d天'), floor($ts / 86400));
+        $ret .= sprintf(_('%d days'), floor($ts / 86400));
         $ts -= floor($ts / 86400) * 86400;
     }
 
     if ($ts >= 3600 || $ret != '') {
-        $ret .= sprintf(_('%d小时'), floor($ts / 3600));
+        $ret .= sprintf(_('%d hours'), floor($ts / 3600));
         $ts -= floor($ts / 3600) * 3600;
     }
 
     if ($ts >= 60 || $ret != '') {
-        $ret .= sprintf(_('%d分'), floor($ts / 60));
+        $ret .= sprintf(_('%d mins'), floor($ts / 60));
         $ts -= floor($ts / 60) * 60;
     }
 
-    $ret .= sprintf(_('%d秒'), $ts);
+    $ret .= sprintf(_('%d secs'), $ts);
 
     return $ret;
 }

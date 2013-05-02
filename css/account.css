@@ -2,15 +2,19 @@
 	background-color: #EAF5FF;
 	border-radius: 10px;
 	box-shadow: 1px 1px 8px #010;
+	transition: all 0.5s ease 0.1s;
 	margin: 0 2% 2% 2%;
 	padding: 1em;
 	
 	overflow: hidden;
 	
 	float: left;
-	width: 40%;
-	
+	width: 40%;	
 }
+.vpn:hover {
+	box-shadow: 1px 1px 8px #080;
+}
+
 .vpn div {
 	line-height: 2em;
 }
@@ -36,10 +40,31 @@
 .vpn .action:hover {
 	margin-right: -2em;
 	min-width: 2em;
+	position: relative;
 }
 .vpn .action a:hover {
 	background-color: #4FC573;
 	
+}
+
+.vpn .username, .vpn .password {
+	font-size: 1.2em;
+	font-weight: bold;
+	color: #5B41DE;
+}
+
+.vpn .subtitle {
+	font-weight: bold;
+}
+
+.vpn .percentbar {
+	border: 1px solid #888;
+	border-radius: 5px;
+	background-image: url("../imgs/percentbar.png");
+	background-repeat: no-repeat;
+	text-align: center;
+	text-shadow: 1px 1px 1px #fff;
+	font-weight: bold;
 }
 
 .passinput {
