@@ -205,12 +205,12 @@ function vpn_renew($name, $quatity) {
 		$modify['validto'] = time() + $quatity;
 	}
 	else {
+		$modify['validfrom'] = $account['validfrom'];
 		$modify['validto'] = $account['validto'] + $quatity;
 	}
 	vpn_mod($name, $modify);
 	
-	vpn_log("Renew VPN account `$name' validate time to " . strftime('%Y-%m-%d %H:%M:%S', $modify['validfrom']) . ' ~ ' . strftime('%Y-%n-%j %G:%i:%s', $modify['validto']));
-	
+	vpn_log("Renew VPN account `$name' validate time to " . strftime('%Y-%m-%d %H:%M:%S', $modify['validfrom']) . ' ~ ' . strftime('%Y-%m-%d %H:%M:%S', $modify['validto']));
 	
 	/// 如果 RADIUS 中无此用户，则增加此用户
 	$qpass = addslashes($account['password']);
@@ -277,4 +277,37 @@ function vpn_afford($serviceid, $email) {
 
 	return $user['balance'] + $user['credit'] - $res[0]['price'];
 }
+
+/**
+ * 删除一个现有的 VPN 帐号，只删除 RADIUS 认证表里面的记录，不删除 vpnaccount 数据表里面的记录
+ * 
+ * @return	成功返回 true，失败返回错误信息或 false
+ */
+function vpn_del($username) {
+	$qname = addslashes($username);
+	
+	$sql = "DELETE FROM  radius.radcheck WHERE username='$qname'";
+	db_query($sql);
+	
+	return true;
+}
+
+/**
+ * 彻底删除一个 VPN 帐号，包括 RADIUS 认证表里面的记录和 vpnaccount 里面的记录
+ */
+function vpn_purge($username) {
+	$qnmae = addslashes($username);
+	
+	$ret = vpn_del($username);
+	
+	if ($ret !== true) {
+		return $ret;
+	}
+	
+	$sql = "DELECT FROM vpnaccount WHERE username='$qname'";
+	db_query($sql);
+	
+	return true;
+}
+
 ?>
