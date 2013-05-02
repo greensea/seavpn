@@ -109,6 +109,22 @@ function vpn_mod($name, $param) {
 }
 
 /**
+ * 修改 VPN 账户密码
+ * 
+ * @param	成功返回 true，失败返回错误信息
+ */
+function vpn_passwd($user, $pass) {
+	$ret = vpn_mod($user, array('password' => $pass));
+	
+	if ($ret === false) {
+		return _('Can not modify VPN account password');
+	}
+	else {
+		return true;
+	}
+}
+
+/**
  * 新增 VPN 帐号
  * 
  * @param $name	VPN 登录名

@@ -49,8 +49,9 @@ function account_main() {
 		$vpn[$key]['validtostr'] = strftime('%Y-%m-%d %H:%M', $vpn[$key]['validto']);
 		$vpn[$key]['daysleft'] = ceil(($vpn[$key]['validto'] - $vpn[$key]['validfrom']) / 86400);
 		
-		
 		$vpn[$key]['stat_monthly'] = $arr;
+		
+		$vpn[$key]['password'] = htmlspecialchars($vpn[$key]['password']);
 	}
 	
 	$smarty->assign('vpns', $vpn);

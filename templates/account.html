@@ -1,4 +1,6 @@
 {append var="css" value="css/account.css"}
+{append var="js" value="js/jquery.js"}
+{append var="js" value="js/account.js"}
 {include file="header.html"}
 
 <h3>{_("My VPN account")}</h3>
@@ -7,10 +9,15 @@
 	<div class="vpn">
 		<div class="action">
 			<a href="account_renew.php?vpnid={$vpn.id}">{_("Renew")}</a>
+			<a href="#" onclick="passwd({$vpn.id});return false;">{_("Change Password")}</a>
 		</div>
 		
 		<div>{_("VPN username: {$vpn.username}")}</div>
-		<div>{_("VPN password: {$vpn.password}")}</div>
+		<div id="passinfo_{$vpn.id}">{_("VPN password: <span id='pass_{$vpn.id}'>{$vpn.password}")}</span></div>
+		<div id="changepass_{$vpn.id}" style="display: none;">
+			<span style="font-weight: bold;">{_("Input new password:")}</span>
+			<input type="text" size="10" value="" class="passinput" id="passinput_{$vpn.id}" onblur="passinput_blur({$vpn.id})" onkeypress="passinput_keypress(this, {$vpn.id})" />
+		</div>
 		
 		<div>{_("Usage statistic of this month:")}</div>
 		<div>{_("In: {$vpn.stat_monthly.inbandstr} Out: {$vpn.stat_monthly.outbandstr} Total: {$vpn.stat_monthly.usedbandstr}")}</div>

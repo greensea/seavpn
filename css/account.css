@@ -12,7 +12,7 @@
 	
 }
 .vpn div {
-	line-height: 1.5em;
+	line-height: 2em;
 }
 
 .vpn .action {
@@ -40,6 +40,9 @@
 .vpn .action a:hover {
 	background-color: #4FC573;
 	
+}
+
+.passinput {
 }
 
 
