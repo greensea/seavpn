@@ -5,8 +5,8 @@ html {
 }
 body {
 	font-size: 14px;
-	box-shadow: 2px 2px 15px #000000;
-	background-color: #ffffff;
+	box-shadow: 2px 2px 15px #000;
+	background-color: #fff;
 	margin: 0;
 	height: 100%;
 	padding: 1rem;
@@ -24,19 +24,21 @@ nav {
 	line-height: 45px;
 	border-radius: 5px;
 	padding: 0 2rem;
+	overflow: hidden;
 }
 nav a {
 	height: 45px;
 	font-weight: bold;
 	color: #fff;
-	margin: 1rem;
 	padding: 0 10px;
 	text-shadow: 1px 1px 1px #003;
 	transition: all .1s linear .1s;
+	padding: 15px 1rem;
 }
 nav a:hover {
 	text-shadow: none;
 	color: #afa;
+	background-color: #285A86;
 }
 
 .barner {
