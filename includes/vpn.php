@@ -296,7 +296,7 @@ function vpn_del($username) {
  * 彻底删除一个 VPN 帐号，包括 RADIUS 认证表里面的记录和 vpnaccount 里面的记录
  */
 function vpn_purge($username) {
-	$qnmae = addslashes($username);
+	$qname = addslashes($username);
 	
 	$ret = vpn_del($username);
 	
@@ -304,7 +304,7 @@ function vpn_purge($username) {
 		return $ret;
 	}
 	
-	$sql = "DELECT FROM vpnaccount WHERE username='$qname'";
+	$sql = "DELETE FROM vpnaccount WHERE username='$qname'";
 	db_query($sql);
 	
 	return true;
