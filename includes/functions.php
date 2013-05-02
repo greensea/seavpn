@@ -80,20 +80,27 @@ function time2readable($ts) {
     }
 
     if ($ts >= 3600 || $ret != '') {
-        $ret .= sprintf(_('%d hours'), floor($ts / 3600));
+        $ret .= sprintf(_(' %d hours'), floor($ts / 3600));
         $ts -= floor($ts / 3600) * 3600;
     }
 
     if ($ts >= 60 || $ret != '') {
-        $ret .= sprintf(_('%d mins'), floor($ts / 60));
+        $ret .= sprintf(_(' %d mins'), floor($ts / 60));
         $ts -= floor($ts / 60) * 60;
     }
 
-    $ret .= sprintf(_('%d secs'), $ts);
+    $ret .= sprintf(_(' %d secs'), $ts);
 
     return $ret;
 }
 
+/**
+ * 自动化脚本的日志功能
+ */
+function tool_log($msg) {
+    echo $msg . "\n";
+    vpn_log("Autotool: $msg");
+}
 
 
 ?>
