@@ -75,7 +75,12 @@ function user_get($email) {
 		return false;
 	}
 	else {
-		return db_fetch_array($res);
+		$ret = db_fetch_array($res);
+		
+		$ret['balance_dollar'] = sprintf('%0.2f', $ret['balance'] / 100);
+		$ret['credit_dollar'] = sprintf('%0.2f', $ret['credit'] / 100);
+		
+		return $ret;
 	}
 }
 

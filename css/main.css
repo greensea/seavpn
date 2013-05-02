@@ -41,6 +41,24 @@ nav a:hover {
 	background-color: #285A86;
 }
 
+nav a:hover .usercredit {
+	opacity: 0.9;
+	color: #000;
+}
+
+.usercredit {
+	position: absolute;
+	border: 1px solid #3E9658;
+	background-color: #DEFFE3;
+	transition: all 0.5s ease 0.01s;
+	border-radius: 5px;
+	opacity: 0;
+	color: #000;
+	margin-top: -0.5em;
+	padding: 0.5em;
+	text-shadow: none;
+}
+
 .barner {
 	font-size: 3rem;
 }
