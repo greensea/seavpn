@@ -23,8 +23,15 @@
 		<div>{_("Download: {$vpn.stat_monthly.inbandstr} Upload: {$vpn.stat_monthly.outbandstr}")}</div>
 		<div class="percentbar" style="background-size: {$vpn.stat_monthly.percentused}% 100%;">{_("{$vpn.stat_monthly.usedbandstr} ({$vpn.stat_monthly.percentused}%) of {$vpn.totalbandstr} used")}</div>
 		<div>{_("Total online time:")} <span class="data">{$vpn.stat_monthly.onlinetimestr}</span></div>
-		<div>{_("Expire before {$vpn.validtostr}, about {$vpn.daysleft} days left")}</div>
-		
+		<div>
+			{_("Expire before {$vpn.validtostr}, ")} 
+			
+			{if {$vpn.daysleft} <= 0}
+				<span style="color: #f00;">{_("expired")}</span>
+			{else}
+				{_("about {$vpn.daysleft} days left")}
+			{/if}
+		</div>
 	</div>
 	{/foreach}
 {else}
