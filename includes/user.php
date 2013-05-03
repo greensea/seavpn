@@ -12,13 +12,24 @@ function user_mod($uid, $param) {
 	foreach ($param as $key => $value) {
 		$qvalue = addslashes($value);
 		$qkey = addslashes($key);
-		$quid = int($uid);
+		$quid = (int)$uid;
 		
 		$sql = "UPDATE account SET $qkey='$qvalue' WHERE id=$quid";
 		db_query($sql) or die(db_error());
 	}
 	
 	return true;
+}
+
+/**
+ * 设置用户密码
+ * 
+ * @param	用户编号
+ * @param	密码
+ * @return	成功返回 true，否则返回错误信息
+ */
+function user_passwd($uid, $pass) {
+	return user_mod($uid, array('loginpass' => $pass));
 }
 
 /**
