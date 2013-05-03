@@ -1,0 +1,23 @@
+.help .content {
+	text-align: center;
+	display: none;
+}
+.help .content p {
+	text-align: left;
+}
+
+.help h3 {
+	background-color: #EDFFF6;
+	border-radius: 8px;
+	padding: 0.3em;
+	cursor: pointer;
+	
+	transition: all 1s ease 0.01s;
+}
+.help h3:hover {
+	background-color: #B3FFDA
+}
+
+.help img {
+	border-radius: 10px;
+}
