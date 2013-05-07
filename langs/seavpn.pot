@@ -1,0 +1,513 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-05-07 14:15+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: templates/account.html:6
+msgid "My VPN account"
+msgstr ""
+
+#: templates/account.html:11
+msgid "Renew"
+msgstr ""
+
+#: templates/account.html:12 templates/userpass.html:4
+msgid "Change Password"
+msgstr ""
+
+#: templates/account.html:15
+msgid "VPN username:"
+msgstr ""
+
+#: templates/account.html:16 templates/account_new.html:18
+msgid "VPN password:"
+msgstr ""
+
+#: templates/account.html:18
+msgid "Input new password:"
+msgstr ""
+
+#: templates/account.html:22
+msgid "Usage statistic of this month:"
+msgstr ""
+
+#: templates/account.html:25 templates/account.html:28
+#: templates/account.html:29
+msgid "Total online time:"
+msgstr ""
+
+#: templates/account.html:30 templates/account.html:33
+#: templates/account.html:34
+msgid "expired"
+msgstr ""
+
+#: templates/account.html:39 templates/account.html:42
+#: templates/account.html:43
+msgid ""
+"You don't have any VPN account yet, <a href='account_new.php'>click here to "
+"buy one</a>. Remember you can pay any cent for it if you have enough credits."
+msgstr ""
+
+#: templates/account_new.html:5
+msgid "VPN account"
+msgstr ""
+
+#: templates/account_new.html:12
+msgid "VPN username: "
+msgstr ""
+
+#: templates/account_new.html:16
+msgid "Username can not be modify after purchase"
+msgstr ""
+
+#: templates/account_new.html:22
+msgid "You can use an easy password, in convenience for remember and enter."
+msgstr ""
+
+#: templates/account_new.html:24
+msgid "Service:"
+msgstr ""
+
+#: templates/header.html:30
+msgid "Log Out"
+msgstr ""
+
+#: templates/header.html:32 templates/login.html:6
+msgid "Log In"
+msgstr ""
+
+#: templates/header.html:33 templates/reg.html:4 templates/reg.html:27
+msgid "Register"
+msgstr ""
+
+#: templates/header.html:36
+msgid "VPN Account"
+msgstr ""
+
+#: templates/header.html:37
+msgid "Help"
+msgstr ""
+
+#: templates/help_accountaction.html:1
+msgid "How can I renew my VPN or change VPN password?"
+msgstr ""
+
+#: templates/help_accountaction.html:4
+msgid ""
+"Move your mouse to the top right of an VPN information tab, then the renew/"
+"change password button popup."
+msgstr ""
+
+#: templates/help_balance.html:1
+msgid "Where can I see my account balance?"
+msgstr ""
+
+#: templates/help_balance.html:5
+msgid ""
+"After login, move you mouse over your email address on the left of the "
+"navigation menu, then the account balance windows will appears."
+msgstr ""
+
+#: templates/help_contact.html:1
+msgid "I have other problems, how can I get contact to you?"
+msgstr ""
+
+#: templates/help_loginpassword.html:1
+msgid "Where can I modify my login password?"
+msgstr ""
+
+#: templates/help_loginpassword.html:4
+msgid ""
+"Click you account name on the left of navigation menu, then change your "
+"login password."
+msgstr ""
+
+#: templates/index.html:3
+msgid "test"
+msgstr ""
+
+#: templates/login.html:13 templates/reg.html:11
+msgid "Email address:"
+msgstr ""
+
+#: templates/login.html:18 templates/reg.html:16
+msgid "Password:"
+msgstr ""
+
+#: templates/login.html:28
+msgid "Remember me"
+msgstr ""
+
+#: templates/order_delivery.html:4
+msgid "Setup successed"
+msgstr ""
+
+#: templates/order_delivery.html:6
+msgid "Your service is been set, your can enjoy it now"
+msgstr ""
+
+#: templates/order_preview.html:1
+msgid "Confirm your order"
+msgstr ""
+
+#: templates/order_preview.html:6
+msgid "Confirm Order"
+msgstr ""
+
+#: templates/order_preview.html:9 order_pay.php:17
+msgid "This order is already paid"
+msgstr ""
+
+#: templates/order_preview.html:22
+msgid "Service price: "
+msgstr ""
+
+#: templates/order_preview.html:26
+msgid "Account balance:"
+msgstr ""
+
+#: templates/order_preview.html:34
+msgid "Your credit:"
+msgstr ""
+
+#: templates/order_preview.html:38
+msgid "You should pay:"
+msgstr ""
+
+#: templates/paypal_confirm.html:4
+msgid "Payment successed"
+msgstr ""
+
+#: templates/paypal_confirm.html:6
+msgid "Setting up the service you purchased, please wait..."
+msgstr ""
+
+#: templates/paypal_confirm.html:7
+msgid "If your have any problem, please contact us"
+msgstr ""
+
+#: templates/reg.html:21 templates/userpass.html:21
+msgid "Confirm password:"
+msgstr ""
+
+#: templates/tip.html:9
+msgid "Click here to continue"
+msgstr ""
+
+#: templates/userpass.html:11
+msgid "Current Password:"
+msgstr ""
+
+#: templates/userpass.html:16
+msgid "New Password:"
+msgstr ""
+
+#: includes/functions.php:78
+#, php-format
+msgid "%d days"
+msgstr ""
+
+#: includes/functions.php:83
+#, php-format
+msgid " %d hours"
+msgstr ""
+
+#: includes/functions.php:88
+#, php-format
+msgid " %d mins"
+msgstr ""
+
+#: includes/functions.php:92
+#, php-format
+msgid " %d secs"
+msgstr ""
+
+#: includes/paypal.lib.php:133 account_new.php:115 account_renew.php:48
+msgid "Redirect"
+msgstr ""
+
+#: includes/paypal.lib.php:134
+msgid "Redirecting you to PayPal"
+msgstr ""
+
+#: includes/user.php:57
+msgid "Invalid usernamem or password"
+msgstr ""
+
+#: includes/user.php:165
+msgid "Can create user while querying DB"
+msgstr ""
+
+#: includes/user.php:169
+msgid "The user/email is exists"
+msgstr ""
+
+#: includes/user.php:176
+msgid "Can create user while updating DB"
+msgstr ""
+
+#: includes/vpn.php:120
+msgid "Can not modify VPN account password"
+msgstr ""
+
+#: includes/vpn.php:145
+msgid "The VPN login username is exists"
+msgstr ""
+
+#: includes/vpn.php:151
+msgid "Error while updating database"
+msgstr ""
+
+#: account_new.php:90 i18n.php:16
+msgid "An error occur"
+msgstr ""
+
+#: account_new.php:91
+msgid "Can not create order, please contact us for help"
+msgstr ""
+
+#: account_new.php:116 account_renew.php:49
+msgid "Redirecting..."
+msgstr ""
+
+#: account_new.php:130 paypal_done.php:87
+msgid "Success"
+msgstr ""
+
+#: account_new.php:131 paypal_done.php:88
+msgid ""
+"Thank you for purchase, now you can go to My Account page to view you VPN "
+"account"
+msgstr ""
+
+#: account.php:5
+msgid "My Account"
+msgstr ""
+
+#: account.php:19
+msgid "Please login"
+msgstr ""
+
+#: account.php:20
+msgid "You have to login before access My Account page"
+msgstr ""
+
+#: account_renew.php:11
+msgid "You have to login before renew your VPN account"
+msgstr ""
+
+#: account_renew.php:17
+msgid "VPN account not exists"
+msgstr ""
+
+#: account_renew.php:25 account_renew.php:34
+msgid "Can not renew, please contact us for help"
+msgstr ""
+
+#: account_renew.php:63
+msgid "Renew Success"
+msgstr ""
+
+#: account_renew.php:64
+msgid ""
+"Thank you for purchase, now you can go to VPN Account page to view you VPN "
+"account"
+msgstr ""
+
+#: account_renew.php:73 order_pay.php:41 order_preview.php:43
+#: paypal_done.php:96
+msgid "ERROR"
+msgstr ""
+
+#: i18n.php:13 i18n.php:14
+msgid "Hello World!"
+msgstr ""
+
+#: index.php:4
+msgid ""
+"SeaVPN - VPN service for user who likes get access to China mainland online "
+"services"
+msgstr ""
+
+#: login.php:4
+msgid "Login - SeaVPN"
+msgstr ""
+
+#: order_pay.php:16
+msgid "Error"
+msgstr ""
+
+#: order_pay.php:30
+msgid "An error occured, please contact us for help"
+msgstr ""
+
+#: order_preview.php:8
+msgid "You have to login to view your order"
+msgstr ""
+
+#: order_preview.php:16 order_preview.php:23
+msgid "Order does not exists"
+msgstr ""
+
+#: paypal_checkout.php:10
+msgid "Please login before checkout"
+msgstr ""
+
+#: paypal_checkout.php:20
+msgid "We have no this service"
+msgstr ""
+
+#: paypal_checkout.php:27 paypal_checkout.php:33
+msgid "Checkout fail, please contact us for help"
+msgstr ""
+
+#: paypal_confirm.php:11
+msgid "Payment fail, please contact us for help"
+msgstr ""
+
+#: reg.php:37
+msgid "Please enter email and password"
+msgstr ""
+
+#: reg.php:42
+msgid "Invalid email address"
+msgstr ""
+
+#: reg.php:47
+msgid "Password does not match"
+msgstr ""
+
+#: reg.php:53
+msgid "<p>Register fail, please contact us for help if you need.</p>"
+msgstr ""
+
+#: reg.php:59
+msgid "Register successed"
+msgstr ""
+
+#: reg.php:60
+msgid "You have registerd successfully"
+msgstr ""
+
+#: userpass.php:6
+msgid "You have to login before change your login password"
+msgstr ""
+
+#: userpass.php:46
+msgid "Please enter new password"
+msgstr ""
+
+#: userpass.php:51
+msgid "New password does not match"
+msgstr ""
+
+#: userpass.php:56
+msgid "Current password is not correct"
+msgstr ""
+
+#: userpass.php:63
+msgid "<p>There is an error occur, please contact us for help if you need.</p>"
+msgstr ""
+
+#: userpass.php:68
+msgid "Successed"
+msgstr ""
+
+#: userpass.php:69
+msgid "Login password successfully changed"
+msgstr ""
+
+#: vpn_passwd.php:9
+msgid "Empty password is no acceptable"
+msgstr ""
+
+#: vpn_passwd.php:15
+msgid "You have to login before change VPN account password"
+msgstr ""
+
+#: vpn_passwd.php:21
+msgid "VPN account is not exists"
+msgstr ""
+
+#: templates/account_new.html:35
+msgid "Buy it"
+msgstr ""
+
+#: templates/help_accountaction.html:6
+msgid "Screenshot of renew/change password button"
+msgstr ""
+
+#: templates/help_balance.html:7
+msgid "Screenshot of balance information"
+msgstr ""
+
+#: templates/help_contact.html:4
+msgid ""
+"Our Email address is on the left below the page, it is <span "
+"class='item'>support@seavpn.com</span>. You can send us an email if you have "
+"any problem."
+msgstr ""
+
+#: templates/login.html:24
+msgid "Login"
+msgstr ""
+
+#: templates/order_preview.html:46
+msgid "Checkout with PayPal"
+msgstr ""
+
+#: templates/userpass.html:27
+msgid "Submit"
+msgstr ""
+
+#: templates/account.html:23 templates/account.html:24
+msgid "Download:"
+msgstr ""
+
+#: templates/account.html:23 templates/account.html:24
+msgid "Upload:"
+msgstr ""
+
+#: templates/account.html:27 templates/account.html:30
+#: templates/account.html:31
+#, c-format
+msgid "Expire before %s, "
+msgstr ""
+
+#: templates/account.html:32 templates/account.html:35
+#: templates/account.html:36
+#, c-format
+msgid "about %d days left"
+msgstr ""
+
+#: templates/header.html:26
+msgid "Balance:"
+msgstr ""
+
+#: templates/header.html:27
+msgid "Credits:"
+msgstr ""
+
+#: templates/paypal_confirm.html:8
+#, c-format
+msgid "If browser stop responding, <a href='%s'>please click me</a>"
+msgstr ""
+
+#: templates/account.html:27
+#, c-format
+msgid "%1$s (%2$d%%) of %3$s used"
+msgstr ""

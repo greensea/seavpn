@@ -1,0 +1,559 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# greensea <gs@bbxy.net>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: seavpn\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-05-07 14:15+0800\n"
+"PO-Revision-Date: 2013-05-07 14:23+0800\n"
+"Last-Translator: greensea <gs@bbxy.net>\n"
+"Language-Team: seavpn <gs@bbxy.net>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-Country: CHINA\n"
+
+#: templates/account.html:6
+msgid "My VPN account"
+msgstr "我的 VPN 帐号"
+
+#: templates/account.html:11
+msgid "Renew"
+msgstr "续费"
+
+#: templates/account.html:12
+#: templates/userpass.html:4
+msgid "Change Password"
+msgstr "修改密码"
+
+#: templates/account.html:15
+msgid "VPN username:"
+msgstr "VPN 用户名："
+
+#: templates/account.html:16
+#: templates/account_new.html:18
+msgid "VPN password:"
+msgstr "VPN 密码："
+
+#: templates/account.html:18
+msgid "Input new password:"
+msgstr "请输入新密码："
+
+#: templates/account.html:22
+msgid "Usage statistic of this month:"
+msgstr "本月使用情况统计："
+
+#: templates/account.html:25
+#: templates/account.html:28
+#: templates/account.html:29
+msgid "Total online time:"
+msgstr "总在线时间："
+
+#: templates/account.html:30
+#: templates/account.html:33
+#: templates/account.html:34
+msgid "expired"
+msgstr "已经过期"
+
+#: templates/account.html:39
+#: templates/account.html:42
+#: templates/account.html:43
+msgid "You don't have any VPN account yet, <a href='account_new.php'>click here to buy one</a>. Remember you can pay any cent for it if you have enough credits."
+msgstr "你还没有 VPN 帐号，请 <a href='account_new.php'>点击这里</a>创建一个新的 VPN 帐号。如果你的信用额度足够的话，可以直接使用信用额度支付。"
+
+#: templates/account_new.html:5
+msgid "VPN account"
+msgstr "VPN 帐号"
+
+#: templates/account_new.html:12
+msgid "VPN username: "
+msgstr "VPN 用户名："
+
+#: templates/account_new.html:16
+msgid "Username can not be modify after purchase"
+msgstr "用户名在创建之后就不能修改了"
+
+#: templates/account_new.html:22
+msgid "You can use an easy password, in convenience for remember and enter."
+msgstr "可以选择一个容易记忆的密码，方便记忆和输入。"
+
+#: templates/account_new.html:24
+msgid "Service:"
+msgstr "服务："
+
+#: templates/header.html:30
+msgid "Log Out"
+msgstr "退出"
+
+#: templates/header.html:32
+#: templates/login.html:6
+msgid "Log In"
+msgstr "登录"
+
+#: templates/header.html:33
+#: templates/reg.html:4
+#: templates/reg.html:27
+msgid "Register"
+msgstr "注册"
+
+#: templates/header.html:36
+msgid "VPN Account"
+msgstr "VPN 帐号"
+
+#: templates/header.html:37
+msgid "Help"
+msgstr "帮助"
+
+#: templates/help_accountaction.html:1
+msgid "How can I renew my VPN or change VPN password?"
+msgstr "如何续费或者修改 VPN 的登录密码？"
+
+#: templates/help_accountaction.html:4
+msgid "Move your mouse to the top right of an VPN information tab, then the renew/change password button popup."
+msgstr "把鼠标移动到 VPN 帐号信息的右上角，之后续费和修改密码按钮就会弹出来了。"
+
+#: templates/help_balance.html:1
+msgid "Where can I see my account balance?"
+msgstr "在哪里可以查看我的账户余额和信用额度？"
+
+#: templates/help_balance.html:5
+msgid "After login, move you mouse over your email address on the left of the navigation menu, then the account balance windows will appears."
+msgstr "登录之后，导航菜单上会显示你的邮件地址，把鼠标移动到邮件地址上就能看到账户余额和信用额度了。"
+
+#: templates/help_contact.html:1
+msgid "I have other problems, how can I get contact to you?"
+msgstr "我遇到问题了，如何联系你们？"
+
+#: templates/help_loginpassword.html:1
+msgid "Where can I modify my login password?"
+msgstr "在哪里可以修改网站登录密码？"
+
+#: templates/help_loginpassword.html:4
+msgid "Click you account name on the left of navigation menu, then change your login password."
+msgstr "点击导航菜单栏上的你的电子邮件地址，然后就能修改密码了。"
+
+#: templates/index.html:3
+msgid "test"
+msgstr "测试"
+
+#: templates/login.html:13
+#: templates/reg.html:11
+msgid "Email address:"
+msgstr "电子邮件地址："
+
+#: templates/login.html:18
+#: templates/reg.html:16
+msgid "Password:"
+msgstr "密码："
+
+#: templates/login.html:28
+msgid "Remember me"
+msgstr "下次不用登录"
+
+#: templates/order_delivery.html:4
+msgid "Setup successed"
+msgstr "成功了"
+
+#: templates/order_delivery.html:6
+msgid "Your service is been set, your can enjoy it now"
+msgstr "VPN 账号创建成功，现在可以开始使用了"
+
+#: templates/order_preview.html:1
+msgid "Confirm your order"
+msgstr "请确认您的定单"
+
+#: templates/order_preview.html:6
+msgid "Confirm Order"
+msgstr "定单确认"
+
+#: templates/order_preview.html:9
+#: order_pay.php:17
+msgid "This order is already paid"
+msgstr "该订单已支付"
+
+#: templates/order_preview.html:22
+msgid "Service price: "
+msgstr "服务价格："
+
+#: templates/order_preview.html:26
+msgid "Account balance:"
+msgstr "账户余额："
+
+#: templates/order_preview.html:34
+msgid "Your credit:"
+msgstr "信用额度："
+
+#: templates/order_preview.html:38
+msgid "You should pay:"
+msgstr "需要支付："
+
+#: templates/paypal_confirm.html:4
+msgid "Payment successed"
+msgstr "支付成功"
+
+#: templates/paypal_confirm.html:6
+msgid "Setting up the service you purchased, please wait..."
+msgstr "正在开通服务，请稍候……"
+
+#: templates/paypal_confirm.html:7
+msgid "If your have any problem, please contact us"
+msgstr "如果您遇到疑难问题，请联系我们"
+
+#: templates/reg.html:21
+#: templates/userpass.html:21
+msgid "Confirm password:"
+msgstr "确认密码："
+
+#: templates/tip.html:9
+msgid "Click here to continue"
+msgstr "点击这里继续"
+
+#: templates/userpass.html:11
+msgid "Current Password:"
+msgstr "现在的密码："
+
+#: templates/userpass.html:16
+msgid "New Password:"
+msgstr "新密码："
+
+#: includes/functions.php:78
+#, php-format
+msgid "%d days"
+msgstr "%d天"
+
+#: includes/functions.php:83
+#, php-format
+msgid " %d hours"
+msgstr "%d小时"
+
+#: includes/functions.php:88
+#, php-format
+msgid " %d mins"
+msgstr "%d分"
+
+#: includes/functions.php:92
+#, php-format
+msgid " %d secs"
+msgstr "%d秒"
+
+#: includes/paypal.lib.php:133
+#: account_new.php:115
+#: account_renew.php:48
+msgid "Redirect"
+msgstr "跳转"
+
+#: includes/paypal.lib.php:134
+msgid "Redirecting you to PayPal"
+msgstr "正在跳转到 PayPal"
+
+#: includes/user.php:57
+msgid "Invalid usernamem or password"
+msgstr "用户名或密码错误"
+
+#: includes/user.php:165
+msgid "Can create user while querying DB"
+msgstr "更新数据库时发生错误，无法创建用户"
+
+#: includes/user.php:169
+msgid "The user/email is exists"
+msgstr "电子邮件地址不存在"
+
+#: includes/user.php:176
+msgid "Can create user while updating DB"
+msgstr "更新数据库时发生错误，无法创建用户"
+
+#: includes/vpn.php:120
+msgid "Can not modify VPN account password"
+msgstr "无法修改 VPN 账号密码"
+
+#: includes/vpn.php:145
+msgid "The VPN login username is exists"
+msgstr "这个 VPN 用户名已经被占用了"
+
+#: includes/vpn.php:151
+msgid "Error while updating database"
+msgstr "更新数据库时发生错误"
+
+#: account_new.php:90
+#: i18n.php:16
+msgid "An error occur"
+msgstr "处理时发生了一个错误"
+
+#: account_new.php:91
+msgid "Can not create order, please contact us for help"
+msgstr "无法创建订单，请联系我们进行处理"
+
+#: account_new.php:116
+#: account_renew.php:49
+msgid "Redirecting..."
+msgstr "正在跳转……"
+
+#: account_new.php:130
+#: paypal_done.php:87
+msgid "Success"
+msgstr "成功"
+
+#: account_new.php:131
+#: paypal_done.php:88
+msgid "Thank you for purchase, now you can go to My Account page to view you VPN account"
+msgstr "感谢购买。请到“我的帐号”页面去查看您的 VPN 帐号信息"
+
+#: account.php:5
+msgid "My Account"
+msgstr "我的帐号"
+
+#: account.php:19
+msgid "Please login"
+msgstr "请登录"
+
+#: account.php:20
+msgid "You have to login before access My Account page"
+msgstr "您需要登录以后才能够查看“我的帐号”页面"
+
+#: account_renew.php:11
+msgid "You have to login before renew your VPN account"
+msgstr "请登录之后再进行续费操作"
+
+#: account_renew.php:17
+msgid "VPN account not exists"
+msgstr "VPN 帐号不存在"
+
+#: account_renew.php:25
+#: account_renew.php:34
+msgid "Can not renew, please contact us for help"
+msgstr "续费失败，请联系我们进行处理"
+
+#: account_renew.php:63
+msgid "Renew Success"
+msgstr "续费成功"
+
+#: account_renew.php:64
+msgid "Thank you for purchase, now you can go to VPN Account page to view you VPN account"
+msgstr "感谢购买。请到“我的帐号”页面去查看您的 VPN 帐号信息"
+
+#: account_renew.php:73
+#: order_pay.php:41
+#: order_preview.php:43
+#: paypal_done.php:96
+msgid "ERROR"
+msgstr "错误"
+
+#: i18n.php:13
+#: i18n.php:14
+msgid "Hello World!"
+msgstr "你好，世界！"
+
+#: index.php:4
+msgid "SeaVPN - VPN service for user who likes get access to China mainland online services"
+msgstr "SeaVPN - 提供可以访问中国大陆网络服务的 VPN"
+
+#: login.php:4
+msgid "Login - SeaVPN"
+msgstr "登录 - SeaVPN"
+
+#: order_pay.php:16
+msgid "Error"
+msgstr "错误"
+
+#: order_pay.php:30
+msgid "An error occured, please contact us for help"
+msgstr "处理请求时发生了错误，请联系我们进行处理"
+
+#: order_preview.php:8
+msgid "You have to login to view your order"
+msgstr "请登录后再查看订单"
+
+#: order_preview.php:16
+#: order_preview.php:23
+msgid "Order does not exists"
+msgstr "订单不存在"
+
+#: paypal_checkout.php:10
+msgid "Please login before checkout"
+msgstr "请登录之后再购买"
+
+#: paypal_checkout.php:20
+msgid "We have no this service"
+msgstr "我们目前不提供这项服务"
+
+#: paypal_checkout.php:27
+#: paypal_checkout.php:33
+msgid "Checkout fail, please contact us for help"
+msgstr "购买失败、请联系我们进行处理"
+
+#: paypal_confirm.php:11
+msgid "Payment fail, please contact us for help"
+msgstr "支付失败，请联系我们进行处理"
+
+#: reg.php:37
+msgid "Please enter email and password"
+msgstr "请输入电子邮件地址和密码"
+
+#: reg.php:42
+msgid "Invalid email address"
+msgstr "邮件地址不正确"
+
+#: reg.php:47
+msgid "Password does not match"
+msgstr "两次输入的密码不一致"
+
+#: reg.php:53
+msgid "<p>Register fail, please contact us for help if you need.</p>"
+msgstr "<p>注册失败，请联系我们进行处理。</p>"
+
+#: reg.php:59
+msgid "Register successed"
+msgstr "注册成功"
+
+#: reg.php:60
+msgid "You have registerd successfully"
+msgstr "您已经成功地注册了一个账号"
+
+#: userpass.php:6
+msgid "You have to login before change your login password"
+msgstr "请登录后再修改登录密码"
+
+#: userpass.php:46
+msgid "Please enter new password"
+msgstr "请输入新密码"
+
+#: userpass.php:51
+msgid "New password does not match"
+msgstr "两次输入的密码不一致"
+
+#: userpass.php:56
+msgid "Current password is not correct"
+msgstr "旧密码不正确"
+
+#: userpass.php:63
+msgid "<p>There is an error occur, please contact us for help if you need.</p>"
+msgstr "<p>处理请求时发生了错误，请联系我们进行处理。</p>"
+
+#: userpass.php:68
+msgid "Successed"
+msgstr "成功了"
+
+#: userpass.php:69
+msgid "Login password successfully changed"
+msgstr "登录密码修改成功"
+
+#: vpn_passwd.php:9
+msgid "Empty password is no acceptable"
+msgstr "请输入密码"
+
+#: vpn_passwd.php:15
+msgid "You have to login before change VPN account password"
+msgstr "请登录后再修改 VPN 账号的密码"
+
+#: vpn_passwd.php:21
+msgid "VPN account is not exists"
+msgstr "VPN 账号不存在"
+
+#: templates/account_new.html:35
+msgid "Buy it"
+msgstr "购买"
+
+#: templates/help_accountaction.html:6
+msgid "Screenshot of renew/change password button"
+msgstr "续费/修改密码的截图"
+
+#: templates/help_balance.html:7
+msgid "Screenshot of balance information"
+msgstr "账户余额信息的截图"
+
+#: templates/help_contact.html:4
+msgid "Our Email address is on the left below the page, it is <span class='item'>support@seavpn.com</span>. You can send us an email if you have any problem."
+msgstr "我们的电子邮件地址在网页的最下方，也就是 <span class='item'>support@seavpn.com</span>. 如果遇到疑难问题，可以通过这个邮箱寻求帮助。"
+
+#: templates/login.html:24
+msgid "Login"
+msgstr "登录"
+
+#: templates/order_preview.html:46
+msgid "Checkout with PayPal"
+msgstr "使用 PayPal 支付"
+
+#: templates/userpass.html:27
+msgid "Submit"
+msgstr "提交"
+
+#: templates/account.html:23
+#: templates/account.html:24
+msgid "Download:"
+msgstr "下载："
+
+#: templates/account.html:23
+#: templates/account.html:24
+msgid "Upload:"
+msgstr "上传："
+
+#: templates/account.html:27
+#: templates/account.html:30
+#: templates/account.html:31
+#, c-format
+msgid "Expire before %s, "
+msgstr "有效期至 %s，"
+
+#: templates/account.html:32
+#: templates/account.html:35
+#: templates/account.html:36
+#, c-format
+msgid "about %d days left"
+msgstr "大约还有 %d 天到期"
+
+#: templates/header.html:26
+msgid "Balance:"
+msgstr "余额："
+
+#: templates/header.html:27
+msgid "Credits:"
+msgstr "信用额度："
+
+#: templates/paypal_confirm.html:8
+#, c-format
+msgid "If browser stop responding, <a href='%s'>please click me</a>"
+msgstr "如果浏览器没有跳转，请<a href='%s'>点击这里</a>"
+
+#: templates/account.html:27
+#, c-format
+msgid "%1$s (%2$d%%) of %3$s used"
+msgstr "已使用 %1$s，占总流量 %3$s 的 %2$d%%"
+
+#~ msgid ""
+#~ "Download: {$vpn.stat_monthly.inbandstr} Upload: {$vpn.stat_monthly."
+#~ "outbandstr}"
+#~ msgstr ""
+#~ "下载: {$vpn.stat_monthly.inbandstr} 上传: {$vpn.stat_monthly.outbandstr}"
+
+#~ msgid ""
+#~ "{$vpn.stat_monthly.usedbandstr} ({$vpn.stat_monthly.percentused}%) of "
+#~ "{$vpn.totalbandstr} used"
+#~ msgstr ""
+#~ "共 {$vpn.totalbandstr}，已使用 {$vpn.stat_monthly.usedbandstr} ({$vpn."
+#~ "stat_monthly.percentused}%)  "
+
+#~ msgid "Expire before {$vpn.validtostr}, "
+#~ msgstr "有效期至 {$vpn.validtostr}，"
+
+#~ msgid "about {$vpn.daysleft} days left"
+#~ msgstr "大约还有 {$vpn.daysleft} 天到期"
+
+#~ msgid "Balance: \\${$user.balance_dollar}"
+#~ msgstr "余额：\\${$user.balance_dollar}"
+
+#~ msgid "Credits: \\${$user.credit_dollar}"
+#~ msgstr "信用额度：\\${$user.credit_dollar}"
+
+#, fuzzy
+#~ msgid "Balance: ${$user.balance_dollar}"
+#~ msgstr "余额：\\${$user.balance_dollar}"
+
+#, fuzzy
+#~ msgid "Credits: ${$user.credit_dollar}"
+#~ msgstr "信用额度：\\${$user.credit_dollar}"
