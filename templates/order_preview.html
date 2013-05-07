@@ -43,7 +43,7 @@
 	{if $order.paidtime == null}
 	<form action="order_pay.php" method="post" target="_blank">
 		<input type="hidden" name="id" value="{$order.id}" />
-		<input type="submit" value="{_('Checkout with PayPal')}" />
+		<input type="submit" value='{_("Checkout with PayPal")}' />
 	</form>
 	{/if}
 	

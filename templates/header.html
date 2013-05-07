@@ -14,7 +14,6 @@
 		{/foreach}
 	</head>
 	<body>
-
 		<a class="barner" href="/">
 			Sea<span style="logo">VPN</span>
 		</a>
@@ -24,8 +23,8 @@
 			<a href="userpass.php">
 				{$user.email}
 				<div class="usercredit">
-					<div>{_("Balance: \${$user.balance_dollar}")}</div>
-					<div>{_("Credits: \${$user.credit_dollar}")}</div>
+					<div>{_("Balance:")} {$user.balance_dollar}</div>
+					<div>{_("Credits:")} {$user.credit_dollar}</div>
 				</div>
 			</a>
 			<a href="logout.php">{_("Log Out")}</a>

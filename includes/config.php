@@ -1,6 +1,12 @@
 <?php
 define('SITE_BASE', 'https://' . $_SERVER['SERVER_NAME'] . '/');
 
+define('LOCALE_DIR', 'langs');
+define('DEFAULT_LANGUAGE', 'en_US');	/// 默认语言
+
+/// 语言优先级
+$LANGUAGE_ORDER = array('zh_CN', 'en_US');
+
 define('DB_USER', 'seavpn');
 define('DB_PASS', '6zqPppHBKRGN76aw');
 define('DB_HOST', 'localhost');

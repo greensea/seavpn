@@ -20,16 +20,20 @@
 		</div>
 		
 		<div class="subtitle">{_("Usage statistic of this month:")}</div>
-		<div>{_("Download: {$vpn.stat_monthly.inbandstr} Upload: {$vpn.stat_monthly.outbandstr}")}</div>
-		<div class="percentbar" style="background-size: {$vpn.stat_monthly.percentused}% 100%;">{_("{$vpn.stat_monthly.usedbandstr} ({$vpn.stat_monthly.percentused}%) of {$vpn.totalbandstr} used")}</div>
+		
+		<div>{_("Download:")} {$vpn.stat_monthly.inbandstr} {_("Upload:")} {$vpn.stat_monthly.outbandstr}</div>
+		
+		<!-- 流量已使用 %1$s（占总流量的 %2$d %)，总流量 %3$s -->
+		<div class="percentbar" style="background-size: {$vpn.stat_monthly.percentused}% 100%;">{sprintf(_('%1$s (%2$d%%) of %3$s used'), {$vpn.stat_monthly.usedbandstr}, {$vpn.stat_monthly.percentused}, {$vpn.totalbandstr})}</div>
+		
 		<div>{_("Total online time:")} <span class="data">{$vpn.stat_monthly.onlinetimestr}</span></div>
 		<div>
-			{_("Expire before {$vpn.validtostr}, ")} 
+			{sprintf(_("Expire before %s, "), {$vpn.validtostr})} 
 			
 			{if {$vpn.daysleft} <= 0}
 				<span style="color: #f00;">{_("expired")}</span>
 			{else}
-				{_("about {$vpn.daysleft} days left")}
+				{sprintf(_("about %d days left"), {$vpn.daysleft})}
 			{/if}
 		</div>
 	</div>
@@ -39,5 +43,6 @@
 		{_("You don't have any VPN account yet, <a href='account_new.php'>click here to buy one</a>. Remember you can pay any cent for it if you have enough credits.")}
 	</div>
 {/if}
+
 
 {include file="footer.html"}

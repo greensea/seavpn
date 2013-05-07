@@ -14,16 +14,27 @@ $smarty->setCompileDir(BASEPATH.'compile');
 $smarty->setCacheDir(BASEPATH . 'compile');
 $smarty->setConfigDir(BASEPATH . 'compile');
 
-$language = 'zh_CN';
-putenv("LANG=$language");
-setlocale(LC_ALL, $language);
 
-$path = BASEPATH . 'locales';
-$domain = 'messages';
+/// 根据浏览器发送的信息判断语言
+$language = DEFAULT_LANGUAGE;
+
+$langstr = $_SERVER['LANGUAGE'] . ' ' . $_SERVER['LANG'];
+foreach ($LANGUAGE_ORDER as $key => $value) {
+	if (stristr($langstr, $value) !== false) {
+		$language = $value;
+		break;
+	}
+}
+
+putenv("LANG=$language");
+setlocale(LC_ALL, $language . '.utf8');	/// 使用 `locale -a` 命令来查看服务器支持的本地化语言
+
+$path = BASEPATH . LOCALE_DIR;
+$domain = "messages";
+
 bindtextdomain($domain, $path);
 textdomain($domain);
 bind_textdomain_codeset($domain, 'UTF-8');
-
 
 /// Assign online user variables
 if ($ret = user_isonline()) {
@@ -33,7 +44,6 @@ if ($ret = user_isonline()) {
 /// Assign default variables
 $smarty->assign('css', array());
 $smarty->assign('js', array());
-
 
 ?>
 
