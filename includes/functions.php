@@ -81,23 +81,26 @@ function time2readable($ts, $depth = 999) {
     if ($ts >= 86400) {
         $ret .= sprintf(_('%d days'), floor($ts / 86400));
         $ts -= floor($ts / 86400) * 86400;
+	$depth--;
     }
 
-    if (--$depth <= 0) return $ret;
+    if ($depth <= 0) return $ret;
 
     if ($ts >= 3600 || $ret != '') {
         $ret .= sprintf(_(' %d hours'), floor($ts / 3600));
         $ts -= floor($ts / 3600) * 3600;
+	$depth--;
     }
     
-    if (--$depth <= 0) return $ret;
+    if ($depth <= 0) return $ret;
 
     if ($ts >= 60 || $ret != '') {
         $ret .= sprintf(_(' %d mins'), floor($ts / 60));
         $ts -= floor($ts / 60) * 60;
+	$depth--;
     }
     
-    if (--$depth <= 0) return $ret;
+    if ($depth <= 0) return $ret;
 
     $ret .= sprintf(_(' %d secs'), $ts);
 
