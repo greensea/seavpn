@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: seavpn\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-05-08 13:55+0800\n"
-"PO-Revision-Date: 2013-05-08 13:55+0800\n"
+"PO-Revision-Date: 2013-05-08 14:54+0800\n"
 "Last-Translator: greensea <gs@bbxy.net>\n"
 "Language-Team: seavpn <gs@bbxy.net>\n"
 "Language: \n"
@@ -267,7 +267,7 @@ msgstr "更新数据库时发生错误，无法创建用户"
 
 #: includes/user.php:169
 msgid "The user/email is exists"
-msgstr "电子邮件地址不存在"
+msgstr "这个电子邮件地址已经注册过了"
 
 #: includes/user.php:176
 msgid "Can create user while updating DB"
@@ -410,7 +410,7 @@ msgstr "两次输入的密码不一致"
 
 #: reg.php:53
 msgid "<p>Register fail, please contact us for help if you need.</p>"
-msgstr "<p>注册失败，请联系我们进行处理。</p>"
+msgstr "<p>注册失败，如果有需要，请联系我们进行处理。</p>"
 
 #: reg.php:59
 msgid "Register successed"
@@ -438,7 +438,7 @@ msgstr "旧密码不正确"
 
 #: userpass.php:63
 msgid "<p>There is an error occur, please contact us for help if you need.</p>"
-msgstr "<p>处理请求时发生了错误，请联系我们进行处理。</p>"
+msgstr "<p>处理请求时发生了错误，如果有需要，请联系我们进行处理。</p>"
 
 #: userpass.php:68
 msgid "Successed"

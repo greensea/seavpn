@@ -50,7 +50,7 @@ function reg_save() {
 	
 	$ret = user_add($email, $pass);
 	if ($ret !== true) {
-		reg_main(_("<p>$ret</p>" . '<p>Register fail, please contact us for help if you need.</p>'));
+		reg_main("<p>$ret</p>" . _('<p>Register fail, please contact us for help if you need.</p>'));
 		return false;
 	}
 	
