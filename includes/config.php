@@ -4,6 +4,10 @@ define('SITE_BASE', 'https://' . $_SERVER['SERVER_NAME'] . '/');
 define('SITE_NAME', 'SeaVPN');
 define('SUPPORT_EMAIL', 'support@seavpn.com');	/// 用户服务电子邮件地址
 
+/// SMTP 服务器信息
+define('SMTP_HOST', 'localhost');
+define('SMTP_PORT', 25);
+
 define('LOCALE_DIR', 'langs');
 define('DEFAULT_LANGUAGE', 'en_US');	/// 默认语言
 

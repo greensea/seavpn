@@ -141,4 +141,27 @@ function tool_log($msg) {
 }
 
 
+/**
+ * 发送电子邮件
+ * 
+ * @return	成功返回 true，失败返回错误信息
+ */
+function sendmail($to, $from, $subject, $content) {
+    ini_set('SMTP', SMTP_HOST);
+    ini_set('smtp_port', SMTP_PORT);
+    
+    if ($to == '' || $from == '') {
+	vpn_log(_('Invalid sendmail argument'));
+	return _("Must specify an email from and email to address");
+    }
+    
+    if(strstr($to, ':') !== false) {
+	return _("No `:' is allow in email address");
+    }
+    
+    mail($to, $subject, $content, "From: $from\nContent-Type: text/html");
+    
+    return true;
+}
+
 ?>
