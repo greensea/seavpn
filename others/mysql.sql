@@ -105,3 +105,40 @@ CREATE TABLE IF NOT EXISTS `vpnaccount` (
   KEY `username` (`username`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=62 ;
 
+
+
+--
+-- 表的结构 `heartbeat`
+--
+
+CREATE TABLE IF NOT EXISTS `heartbeat` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `address` varchar(100) NOT NULL,
+  `rxrate` int(11) DEFAULT NULL COMMENT '出站速率，单位（bps）',
+  `txrate` int(11) DEFAULT NULL COMMENT '入站速率，单位（bps）',
+  `uptime` int(11) DEFAULT NULL,
+  `heartbeat` int(11) DEFAULT NULL COMMENT '心跳的时间，单位（UNIX 时间戳）',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='该表只有归档用处，仅供人工查阅。如果不需要服务器心跳记录归档，可将该表引擎类型设置为黑洞' AUTO_INCREMENT=108 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `server`
+--
+
+CREATE TABLE IF NOT EXISTS `server` (
+  `address` varchar(100) NOT NULL,
+  `location` varchar(500) NOT NULL DEFAULT '' COMMENT '服务器所在地址及网络服务商信息',
+  `pptp` tinyint(4) NOT NULL,
+  `l2tp` tinyint(4) NOT NULL,
+  `remark` varchar(1000) NOT NULL DEFAULT '',
+  `enabled` tinyint(4) NOT NULL DEFAULT '1' COMMENT '使能标志',
+  `rxrate` int(11) NOT NULL DEFAULT '0' COMMENT '出站速率，单位（bps）',
+  `txrate` int(11) NOT NULL DEFAULT '0' COMMENT '入站速率，单位（bps）',
+  `uptime` int(11) NOT NULL DEFAULT '0',
+  `heartbeat` int(11) NOT NULL DEFAULT '0' COMMENT '最后一次心跳的时间，单位（UNIX 时间戳）',
+  `l2tp_psk` varchar(50) NOT NULL,
+  PRIMARY KEY (`address`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
