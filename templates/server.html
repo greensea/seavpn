@@ -47,7 +47,7 @@
 				{if $user.email != ""}
 				<!-- 未登录用户不能查看 L2TP 密钥 -->
 				<div>
-					L2TP Pre-shared key: <span class="data">{$server.l2tp_psk}</span>
+					{_("L2TP Pre-shared key:")}<span style="padding-left: 0.2em;" class="data">{$server.l2tp_psk}</span>
 				</div>
 				{/if}
 			{else}

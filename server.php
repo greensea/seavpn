@@ -14,7 +14,7 @@ for ($i = 0; $i < count($servers); $i++) {
 	/// 处理在线信息及流量信息
 	if (time() - $servers[$i]['heartbeat'] > SERVER_ALIVE_THRESHOLD) {
 		$servers[$i]['isonline'] = 0;
-		$servers[$i]['rtratestr'] = 'Unknown';
+		$servers[$i]['rtratestr'] = _('Unknown');
 	}
 	else {
 		$servers[$i]['isonline'] = 1;
