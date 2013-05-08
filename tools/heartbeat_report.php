@@ -68,6 +68,9 @@ function heartbeat($name, $uptime, $rx, $tx) {
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	
 	$ret = curl_exec($ch);
+	if ($ret == false) {
+		$ret = curl_error($ch);
+	}
 	
 	curl_close($ch);
 	
