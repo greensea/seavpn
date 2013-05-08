@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-07 14:15+0800\n"
+"POT-Creation-Date: 2013-05-08 13:55+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -98,7 +98,7 @@ msgstr ""
 msgid "VPN Account"
 msgstr ""
 
-#: templates/header.html:37
+#: templates/header.html:37 templates/header.html:38
 msgid "Help"
 msgstr ""
 
@@ -216,22 +216,22 @@ msgstr ""
 msgid "New Password:"
 msgstr ""
 
-#: includes/functions.php:78
+#: includes/functions.php:78 includes/functions.php:82
 #, php-format
 msgid "%d days"
 msgstr ""
 
-#: includes/functions.php:83
+#: includes/functions.php:83 includes/functions.php:89
 #, php-format
 msgid " %d hours"
 msgstr ""
 
-#: includes/functions.php:88
+#: includes/functions.php:88 includes/functions.php:96
 #, php-format
 msgid " %d mins"
 msgstr ""
 
-#: includes/functions.php:92
+#: includes/functions.php:92 includes/functions.php:102
 #, php-format
 msgid " %d secs"
 msgstr ""
@@ -510,4 +510,68 @@ msgstr ""
 #: templates/account.html:27
 #, c-format
 msgid "%1$s (%2$d%%) of %3$s used"
+msgstr ""
+
+#: server.php:9
+msgid "*HIDDEN*"
+msgstr ""
+
+#: templates/header.html:37 templates/server.html:4
+msgid "Servers"
+msgstr ""
+
+#: templates/server.html:7
+msgid "Server Status"
+msgstr ""
+
+#: templates/server.html:11
+msgid "Address"
+msgstr ""
+
+#: templates/server.html:12
+msgid "Location"
+msgstr ""
+
+#: templates/server.html:13
+msgid "PPTP support"
+msgstr ""
+
+#: templates/server.html:14
+msgid "L2TP support"
+msgstr ""
+
+#: templates/server.html:15
+msgid "R.T. Traffic"
+msgstr ""
+
+#: templates/server.html:16
+msgid "Uptime"
+msgstr ""
+
+#: templates/server.html:17 templates/server.html:69 templates/server.html:72
+msgid "Online"
+msgstr ""
+
+#: templates/server.html:18
+msgid "Remark"
+msgstr ""
+
+#: templates/server.html:36 templates/server.html:45
+msgid "Supported"
+msgstr ""
+
+#: templates/server.html:38 templates/server.html:54
+msgid "Not Supported"
+msgstr ""
+
+#: templates/server.html:70 templates/server.html:73
+msgid "Offline"
+msgstr ""
+
+#: templates/server.html:50
+msgid "L2TP Pre-shared key:"
+msgstr ""
+
+#: server.php:17
+msgid "Unknown"
 msgstr ""
