@@ -1,6 +1,7 @@
 <?php
 define('SITE_BASE', 'https://' . $_SERVER['SERVER_NAME'] . '/');
 
+define('SITE_NAME', 'SeaVPN');
 define('SUPPORT_EMAIL', 'support@seavpn.com');	/// 用户服务电子邮件地址
 
 define('LOCALE_DIR', 'langs');

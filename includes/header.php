@@ -47,6 +47,7 @@ $smarty->assign('js', array());
 
 $smarty->assign('support_email', SUPPORT_EMAIL);
 $smarty->assign('SERVER_NAME', $_SERVER['SERVER_NAME']);
+$smarty->assign('SITE_NAME', SITE_NAME);
 ?>
 
 
