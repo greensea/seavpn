@@ -4,6 +4,9 @@ define('SITE_BASE', 'https://' . $_SERVER['SERVER_NAME'] . '/');
 define('LOCALE_DIR', 'langs');
 define('DEFAULT_LANGUAGE', 'en_US');	/// 默认语言
 
+define('SERVER_ALIVE_THRESHOLD', 120);	/// 服务器多长没有发送心跳视为服务器宕机，单位（秒）
+define('SERVER_PING_SALT', '16gEXJlmlySl67v0FbfIZqJMpA');	/// 服务器 PING 接口密码噪声
+
 /// 语言优先级
 $LANGUAGE_ORDER = array('zh_CN', 'en_US');
 
@@ -17,6 +20,7 @@ define('DEFAULT_USER_CREDIT', 10.0);	/// 默认信用额度
 define('VPNNS', 'seavpn_');
 
 define('USER_SESSIONTIME', 3600);	/// 用户最长不活动时间
+
 
 define('PAYPAL_APIUSER', 'gs_api1.bbxy.net');
 define('PAYPAL_APIPASS', 'B22V57BMGU8P3MBD');

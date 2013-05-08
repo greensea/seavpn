@@ -71,7 +71,11 @@ function size2readable($size) {
 }
 
 
-function time2readable($ts) {
+/**
+ * @param	时间，单位（秒）
+ * @param	显示深度，比如深度为 1 则只显示到第一个单位，即 2 天；如果深度为 2 则现实到第二个单位，即 2 天 10 小时。
+ */
+function time2readable($ts, $depth = 999) {
     $ret = '';
 
     if ($ts >= 86400) {
@@ -79,19 +83,50 @@ function time2readable($ts) {
         $ts -= floor($ts / 86400) * 86400;
     }
 
+    if (--$depth <= 0) return $ret;
+
     if ($ts >= 3600 || $ret != '') {
         $ret .= sprintf(_(' %d hours'), floor($ts / 3600));
         $ts -= floor($ts / 3600) * 3600;
     }
+    
+    if (--$depth <= 0) return $ret;
 
     if ($ts >= 60 || $ret != '') {
         $ret .= sprintf(_(' %d mins'), floor($ts / 60));
         $ts -= floor($ts / 60) * 60;
     }
+    
+    if (--$depth <= 0) return $ret;
 
     $ret .= sprintf(_(' %d secs'), $ts);
 
     return $ret;
+}
+
+function bps2readable($bps) {
+    $fmt = '';
+
+    if ($bps < 1000) {
+        $fmt = sprintf('%d bps', $bps);
+    }
+    else if ($bps < 1000 * 1000) {
+        $fmt = sprintf('%0.2f Kbps', $bps / 1024);
+    }
+    else if ($bps < 1000 * 1000 * 1000) {
+        $fmt = sprintf('%0.2f Mbps', $bps / 1024 / 1024);
+    }
+    else if ($bps < 1000 * 1000 * 1000 * 1000) {
+        $fmt = sprintf('%0.2f Gbps', $bps / 1024 / 1024 / 1024);
+    }
+    else if ($bps < 1000 * 1000 * 1000 * 1000 * 1000) {
+        $fmt = sprintf('%0.2f TBps', $bps / 1024 / 1024 / 1024 / 1024);
+    }
+    else {
+        $fmt = sprintf('%0.2f Pbps', $bps / 1024 / 1024 / 1024 / 1024 / 1024);
+    }
+
+    return $fmt;
 }
 
 /**

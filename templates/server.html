@@ -1,0 +1,89 @@
+{append var="css" value="css/server.css"}
+{append var="js" value="js/server.js"}
+{append var="js" value="js/jquery.js"}
+{assign var="title" value={_("Servers")}}
+{include file="header.html"}
+
+<h2>{_("Server Status")}</h2>
+
+<table cellpadding="1" class="servers">
+	<tr>
+		<th>{_("Address")}</th>
+		<th>{_("Location")}</th>
+		<th>{_("PPTP support")}</th>
+		<th>{_("L2TP support")}</th>
+		<th>{_("R.T. Traffic")}</th>
+		<th>{_("Uptime")}</th>
+		<th>{_("Online")}</th>
+		<th>{_("Remark")}</th>
+	</tr>
+	
+	{foreach $servers as $server}
+	
+	{if $server.isonline == 1}
+		{assign var="statusstr" value="online"}
+	{else}
+		{assign var="statusstr" value="offline"}
+	{/if}
+	
+	<tr class="{$statusstr}_bg">
+		<td>{$server.address}</td>
+		<td>{$server.location}</td>
+		
+		<!-- PPTP 支持 -->
+		<td>
+			{if $server.pptp == 1}
+			<span class="supported">{_("Supported")}</span>
+			{else}
+			<span class="notsupported">{_("Not Supported")}</span>
+			{/if}
+		</td>
+		
+		<!-- L2TP 支持 -->
+		<td>
+			{if $server.l2tp == 1}
+				<span class="supported">{_("Supported")}</span>
+				
+				{if $user.email != ""}
+				<!-- 未登录用户不能查看 L2TP 密钥 -->
+				<div>
+					L2TP Pre-shared key: <span class="data">{$server.l2tp_psk}</span>
+				</div>
+				{/if}
+			{else}
+				<span class="notsupported">{_("Not Supported")}</span>
+			{/if}
+			
+
+		</td>
+		
+		<!-- 实时流量 -->
+		<td name="rtrate">{$server.rtratestr}</td>
+		
+		<!-- 在线时间 -->
+		<td name="uptime">{$server.uptimestr}</td>
+		
+		<!-- 在线情况 -->
+		<td name="status">
+			{if $server.isonline == 1}
+			<span name="online" class="online">{_("Online")}</span>
+			<span name="offline" class="offline" style="display: none;">{_("Offline")}</span>
+			{else}
+			<span name="online" class="online" style="display: none;">{_("Online")}</span>
+			<span name="offline" class="offline">{_("Offline")}</span>
+			{/if}
+		</td>
+		
+		<!-- 备注 -->
+		<td>{$server.remark}</td>
+	</tr>
+	
+	{/foreach}
+	
+</table>
+
+<script type="text/javascript">
+setTimeout("servers_refresh(5000)", 1000);
+</script>
+
+{include file="footer.html"}

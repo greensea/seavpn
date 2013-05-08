@@ -1,0 +1,58 @@
+.servers {
+	width: 100%;
+	border-collapse: collapse;
+	text-align: center;
+}
+.servers td, .servers th {
+	border: 1px solid #B5CFE0;
+	padding: 0.2em;
+}
+.servers th {
+	background-image: url("../imgs/th_bg.png");
+	border: 1px solid #ccf;
+}
+
+span, tr, td, th, table {
+	transition: all 1s ease 0.01s;
+}
+
+.servers tr td {
+	transition: all 0.4s ease 0.01s;
+}
+.servers tr:hover td {
+	text-shadow: 0px 0px 1px #0f0;
+}
+
+.servers .affirmative {
+	color: #080;
+}
+.servers .negative {
+	color: #f00;
+}
+
+.servers .offline_bg {
+	background-color: #FFF2F6;
+}
+.servers .online_bg {
+}
+
+.servers .offline {
+	color: #800;
+}
+.servers .online {
+	color: #080;
+}
+
+.servers .supported {
+	padding-left: 20px;
+	background: url("../imgs/right_16.png") no-repeat left center;
+}
+.servers .notsupported {
+	padding-left: 20px;
+	background: url("../imgs/wrong_16.png") no-repeat left center;
+}
+
+.servers .data {
+	color: #5B8EFF;
+}
+
