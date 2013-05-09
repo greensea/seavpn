@@ -6,6 +6,7 @@ define('SERVER_ADDRESS', 'localhost');	/// 本机的服务器地址或本机的�
 define('SERVER_PING_SALT', '16gEXJlmlySl67v0FbfIZqJMpA');	/// 服务器 PING 接口密码噪声
 
 define('HEARTBEAT_API', 'http://seavpn.com/server_ping.php');
+define('REPORT_TIMEOUT', 60);	/// cURL 最长执行时间
 
 $dev = INTERFACE_NAME;
 $statfile = "/tmp/seavpn.$dev.stat";
@@ -66,6 +67,7 @@ function heartbeat($name, $uptime, $rx, $tx) {
 	$ch = curl_init(HEARTBEAT_API . "?address=$name&uptime=$uptime&rxrate=$rx&txrate=$tx&password=$pass");
 	
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_TIMEOUT, REPORT_TIMEOUT);
 	
 	$ret = curl_exec($ch);
 	if ($ret == false) {
