@@ -1,3 +1,5 @@
+var initts = 99999999;
+
 function servers_refresh(ts) {
 	$.ajax({
 		url : "server.php?json",
@@ -6,11 +8,26 @@ function servers_refresh(ts) {
 			for(i = 0; i < data.length; i++) {
 				server_update(data[i]);
 			}
+			
+			if (ts <= initts) {
+				initts = ts;
+			}
+			else {
+				ts = initts;
+			}
+			setTimeout("servers_refresh(" + ts + ")", ts);
+		},
+		error : function () {
+			ts = ts + 5;
+			if (ts > 60) {
+				ts = 60;
+			}
+			setTimeout("servers_refresh(" + ts + ")", ts);
 		}
 	});
 	
 	
-	setTimeout("servers_refresh(" + ts + ")", ts);
+	
 }
 
 function server_update(data) {
