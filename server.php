@@ -2,6 +2,14 @@
 require_once('includes/header.php');
 
 $user = user_isonline();
+
+if ($user === false) {
+	$smarty->assign('tip_title', _('Login Required'));
+	$smarty->assign('tip_msg', _('You have to login to access Server List'));
+	$smarty->display('tip.html');
+	die();
+}
+
 $servers = db_quick_fetch('server', 'WHERE enabled=1');
 
 for ($i = 0; $i < count($servers); $i++) {

@@ -34,6 +34,10 @@
 			{/if}
 			
 			<a href="account.php">{_("VPN Account")}</a>
+			
+			{if $user.email != ''}
 			<a href="server.php">{_("Servers")}</a>
+			{/if}
+			
 			<a href="help.php">{_("Help")}</a>
 		</nav>
