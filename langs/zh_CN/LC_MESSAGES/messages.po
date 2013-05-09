@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: seavpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-08 13:55+0800\n"
-"PO-Revision-Date: 2013-05-08 14:54+0800\n"
+"POT-Creation-Date: 2013-05-09 10:27+0800\n"
+"PO-Revision-Date: 2013-05-09 10:28+0800\n"
 "Last-Translator: greensea <gs@bbxy.net>\n"
 "Language-Team: seavpn <gs@bbxy.net>\n"
 "Language: \n"
@@ -108,6 +108,7 @@ msgstr "VPN 帐号"
 
 #: templates/header.html:37
 #: templates/header.html:38
+#: templates/help.html:5
 msgid "Help"
 msgstr "帮助"
 
@@ -154,6 +155,7 @@ msgid "Password:"
 msgstr "密码："
 
 #: templates/login.html:28
+#: templates/login.html:42
 msgid "Remember me"
 msgstr "下次不用登录"
 
@@ -359,6 +361,7 @@ msgid "SeaVPN - VPN service for user who likes get access to China mainland onli
 msgstr "SeaVPN - 提供可以访问中国大陆网络服务的 VPN"
 
 #: login.php:4
+#: login.php:5
 msgid "Login - SeaVPN"
 msgstr "登录 - SeaVPN"
 
@@ -397,26 +400,32 @@ msgid "Payment fail, please contact us for help"
 msgstr "支付失败，请联系我们进行处理"
 
 #: reg.php:37
+#: reg.php:40
 msgid "Please enter email and password"
 msgstr "请输入电子邮件地址和密码"
 
 #: reg.php:42
+#: reg.php:45
 msgid "Invalid email address"
 msgstr "邮件地址不正确"
 
 #: reg.php:47
+#: reg.php:50
 msgid "Password does not match"
 msgstr "两次输入的密码不一致"
 
 #: reg.php:53
+#: reg.php:62
 msgid "<p>Register fail, please contact us for help if you need.</p>"
 msgstr "<p>注册失败，如果有需要，请联系我们进行处理。</p>"
 
 #: reg.php:59
+#: reg.php:68
 msgid "Register successed"
 msgstr "注册成功"
 
 #: reg.php:60
+#: reg.php:69
 msgid "You have registerd successfully"
 msgstr "您已经成功地注册了一个账号"
 
@@ -599,6 +608,24 @@ msgstr "L2TP 预共享密钥："
 #: server.php:17
 msgid "Unknown"
 msgstr "未知"
+
+#: login.php:37
+msgid "The CAPTCHA you entered is incorrect"
+msgstr "验证码不正确"
+
+#: reg.php:55
+msgid "The CAPTCHA you enter is not correct"
+msgstr "验证码不正确"
+
+#: templates/login.html:25
+#: templates/reg.html:26
+msgid "CAPTCHA:"
+msgstr "验证码："
+
+#: templates/help_contact.html:4
+#, c-format
+msgid "Our Email address is on the left below the page, it is <span class='item'>%s</span>. You can send us an email if you have any problem."
+msgstr "我们的电子邮件地址在网页的最下方，也就是 <span class='item'>%s</span>. 如果遇到疑难问题，可以通过这个邮箱寻求帮助。"
 
 #~ msgid ""
 #~ "Download: {$vpn.stat_monthly.inbandstr} Upload: {$vpn.stat_monthly."

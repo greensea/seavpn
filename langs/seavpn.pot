@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-08 14:52+0800\n"
+"POT-Creation-Date: 2013-05-09 10:27+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -98,7 +98,7 @@ msgstr ""
 msgid "VPN Account"
 msgstr ""
 
-#: templates/header.html:37 templates/header.html:38
+#: templates/header.html:37 templates/header.html:38 templates/help.html:5
 msgid "Help"
 msgstr ""
 
@@ -148,7 +148,7 @@ msgstr ""
 msgid "Password:"
 msgstr ""
 
-#: templates/login.html:28
+#: templates/login.html:28 templates/login.html:42
 msgid "Remember me"
 msgstr ""
 
@@ -343,7 +343,7 @@ msgid ""
 "services"
 msgstr ""
 
-#: login.php:4
+#: login.php:4 login.php:5
 msgid "Login - SeaVPN"
 msgstr ""
 
@@ -379,27 +379,27 @@ msgstr ""
 msgid "Payment fail, please contact us for help"
 msgstr ""
 
-#: reg.php:37
+#: reg.php:37 reg.php:40
 msgid "Please enter email and password"
 msgstr ""
 
-#: reg.php:42
+#: reg.php:42 reg.php:45
 msgid "Invalid email address"
 msgstr ""
 
-#: reg.php:47
+#: reg.php:47 reg.php:50
 msgid "Password does not match"
 msgstr ""
 
-#: reg.php:53
+#: reg.php:53 reg.php:62
 msgid "<p>Register fail, please contact us for help if you need.</p>"
 msgstr ""
 
-#: reg.php:59
+#: reg.php:59 reg.php:68
 msgid "Register successed"
 msgstr ""
 
-#: reg.php:60
+#: reg.php:60 reg.php:69
 msgid "You have registerd successfully"
 msgstr ""
 
@@ -574,4 +574,23 @@ msgstr ""
 
 #: server.php:17
 msgid "Unknown"
+msgstr ""
+
+#: login.php:37
+msgid "The CAPTCHA you entered is incorrect"
+msgstr ""
+
+#: reg.php:55
+msgid "The CAPTCHA you enter is not correct"
+msgstr ""
+
+#: templates/login.html:25 templates/reg.html:26
+msgid "CAPTCHA:"
+msgstr ""
+
+#: templates/help_contact.html:4
+#, c-format
+msgid ""
+"Our Email address is on the left below the page, it is <span class='item'>"
+"%s</span>. You can send us an email if you have any problem."
 msgstr ""
