@@ -1,3 +1,11 @@
 .orderinfo div {
 	line-height: 2em;
 }
+
+.orderinfo tr {
+	height: 2em;
+}
+.orderinfo tr:hover {
+	background-color: #E4F7FA;
+	border-radius: 10px;
+}
