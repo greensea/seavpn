@@ -25,6 +25,7 @@ function paypal_new_payment($orderid, $amount) {
 	
 	$arr = paypal_nvp_request(array('method' => 'SetExpressCheckout',
 									'paymentrequest_0_amt' => $amtstr,
+									'paymentrequest_n_currencycode' => CURRENCY_CODE,
 									'reqconfirmshipping' => '0',
 									'noshipping' => '1',
 									'allownote' => '0',
@@ -89,6 +90,7 @@ function paypal_do_payment($token, $amount) {
 	$arr = paypal_nvp_request(array('method' => 'DoExpressCheckoutPayment',
 									'paymentinfo_0_paymentaction' => 'Sale',
 									'paymentrequest_0_amt' => $amtstr,
+									'paymentrequest_n_currencycode' => CURRENCY_CODE,
 									'payerid' => $payerid,
 									'token' => $token));
 									

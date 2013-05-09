@@ -49,6 +49,7 @@ $smarty->assign('support_email', SUPPORT_EMAIL);
 $smarty->assign('SERVER_NAME', $_SERVER['SERVER_NAME']);
 $smarty->assign('SITE_NAME', SITE_NAME);
 $smarty->assign('INVITECODE_ENABLED', INVITECODE_ENABLED);
+$smarty->assign('CURRENCY_SYMBOL', CURRENCY_SYMBOL);
 ?>
 
 

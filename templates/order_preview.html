@@ -20,23 +20,23 @@
 		</tr>
 		<tr>
 			<td style="word-break: keep-all; white-space: no-wrap;">{_("Service price: ")}</td>
-			<td>${$order.price}</td>
+			<td>{$CURRENCY_SYMBOL}{$order.price}</td>
 		</tr>
 		<tr>
 			<td>{_("Account balance:")}</td>
 			{if $user.balance < 0}
-			<td style="color: #f00;">${$user.balance}</td>
+			<td style="color: #f00;">{$CURRENCY_SYMBOL}{$user.balance}</td>
 			{else}
-			<td>${$user.balance}</td>
+			<td>{$CURRENCY_SYMBOL}{$user.balance}</td>
 			{/if}
 		</tr>
 		<tr>
 			<td>{_("Your credit:")}</td>
-			<td>${$user.credit}</td>
+			<td>{$CURRENCY_SYMBOL}{$user.credit}</td>
 		</tr>
 		<tr>
 			<td>{_("You should pay:")}</td>
-			<td><strong>${$order.amount}</strong></td>
+			<td><strong>{$CURRENCY_SYMBOL}{$order.amount}</strong></td>
 		</tr>
 	</table>
 	
