@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: seavpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-09 10:27+0800\n"
-"PO-Revision-Date: 2013-05-09 10:28+0800\n"
+"POT-Creation-Date: 2013-05-09 14:48+0800\n"
+"PO-Revision-Date: 2013-05-09 14:51+0800\n"
 "Last-Translator: greensea <gs@bbxy.net>\n"
 "Language-Team: seavpn <gs@bbxy.net>\n"
 "Language: \n"
@@ -109,6 +109,7 @@ msgstr "VPN 帐号"
 #: templates/header.html:37
 #: templates/header.html:38
 #: templates/help.html:5
+#: templates/header.html:46
 msgid "Help"
 msgstr "帮助"
 
@@ -401,31 +402,37 @@ msgstr "支付失败，请联系我们进行处理"
 
 #: reg.php:37
 #: reg.php:40
+#: reg.php:45
 msgid "Please enter email and password"
 msgstr "请输入电子邮件地址和密码"
 
 #: reg.php:42
 #: reg.php:45
+#: reg.php:50
 msgid "Invalid email address"
 msgstr "邮件地址不正确"
 
 #: reg.php:47
 #: reg.php:50
+#: reg.php:55
 msgid "Password does not match"
 msgstr "两次输入的密码不一致"
 
 #: reg.php:53
 #: reg.php:62
+#: reg.php:71
 msgid "<p>Register fail, please contact us for help if you need.</p>"
 msgstr "<p>注册失败，如果有需要，请联系我们进行处理。</p>"
 
 #: reg.php:59
 #: reg.php:68
+#: reg.php:82
 msgid "Register successed"
 msgstr "注册成功"
 
 #: reg.php:60
 #: reg.php:69
+#: reg.php:83
 msgid "You have registerd successfully"
 msgstr "您已经成功地注册了一个账号"
 
@@ -540,11 +547,13 @@ msgid "%1$s (%2$d%%) of %3$s used"
 msgstr "已使用 %1$s，占总流量 %3$s 的 %2$d%%"
 
 #: server.php:9
+#: server.php:23
 msgid "*HIDDEN*"
 msgstr "已隐藏"
 
 #: templates/header.html:37
 #: templates/server.html:4
+#: templates/header.html:39
 msgid "Servers"
 msgstr "服务器列表"
 
@@ -606,6 +615,7 @@ msgid "L2TP Pre-shared key:"
 msgstr "L2TP 预共享密钥："
 
 #: server.php:17
+#: server.php:31
 msgid "Unknown"
 msgstr "未知"
 
@@ -614,11 +624,13 @@ msgid "The CAPTCHA you entered is incorrect"
 msgstr "验证码不正确"
 
 #: reg.php:55
+#: reg.php:60
 msgid "The CAPTCHA you enter is not correct"
 msgstr "验证码不正确"
 
 #: templates/login.html:25
 #: templates/reg.html:26
+#: templates/reg.html:31
 msgid "CAPTCHA:"
 msgstr "验证码："
 
@@ -626,6 +638,64 @@ msgstr "验证码："
 #, c-format
 msgid "Our Email address is on the left below the page, it is <span class='item'>%s</span>. You can send us an email if you have any problem."
 msgstr "我们的电子邮件地址在网页的最下方，也就是 <span class='item'>%s</span>. 如果遇到疑难问题，可以通过这个邮箱寻求帮助。"
+
+#: invitecode.php:7
+msgid "Login Require"
+msgstr "请先登录"
+
+#: invitecode.php:8
+msgid "You have to login before access this page"
+msgstr "您需要登录以后才能够查看这个页面"
+
+#: reg.php:65
+msgid "The invite code is invalid or have been used"
+msgstr "邀请码不正确，或者是这个邀请码已经被使用过了"
+
+#: server.php:8
+msgid "Login Required"
+msgstr "请先登录"
+
+#: server.php:9
+#: server.php:13
+msgid "You have to login to access Server List"
+msgstr "请登录后再查看服务器列表"
+
+#: templates/header.html:42
+msgid "Invites"
+msgstr "邀请码"
+
+#: templates/invitecode.html:1
+#: templates/invitecode.html:13
+msgid "Invite Code"
+msgstr "邀请码"
+
+#: templates/invitecode.html:8
+msgid "Invite Codes"
+msgstr "邀请码"
+
+#: templates/invitecode.html:9
+msgid "These are your invite codes, you can gave one to your friend for them to register."
+msgstr "下面这些是你的邀请码，你可以把邀请码发给其他人，这样别人就可以注册了"
+
+#: templates/invitecode.html:14
+msgid "Invite Link"
+msgstr "邀请注册链接"
+
+#: templates/invitecode.html:15
+msgid "Status"
+msgstr "状态"
+
+#: templates/invitecode.html:32
+msgid "Used"
+msgstr "被用过了"
+
+#: templates/invitecode.html:34
+msgid "Available"
+msgstr "可以使用"
+
+#: templates/reg.html:26
+msgid "Invite Code:"
+msgstr "邀请码："
 
 #~ msgid ""
 #~ "Download: {$vpn.stat_monthly.inbandstr} Upload: {$vpn.stat_monthly."
