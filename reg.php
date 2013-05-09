@@ -22,6 +22,11 @@ function reg_main($error_msg = '') {
 		$key = strtolower($key);
 		$smarty->assign($key, $value);
 	}
+	
+	if (!isset($_POST['invitecode'])) {
+		$smarty->assign('invitecode', @$_GET['invitecode']);
+	}
+	
 	$smarty->assign('error_msg', $error_msg);
 	
 	$smarty->assign('recaptcha_html', recaptcha_get_html(RECAPTCHA_PUBLIC_KEY));
@@ -56,11 +61,20 @@ function reg_save() {
 		return false;
 	}
 	
+	if (INVITECODE_ENABLED == 1 && reg_checkinvite(@$_POST['invitecode']) == false) {
+		reg_main(_('The invite code is invalid or have been used'));
+		return false;
+	}
 	
 	$ret = user_add($email, $pass);
 	if ($ret !== true) {
 		reg_main("<p>$ret</p>" . _('<p>Register fail, please contact us for help if you need.</p>'));
 		return false;
+	}
+	
+	
+	if (INVITECODE_ENABLED == 1) {
+		invite_use($_POST['invitecode']);
 	}
 	
 	user_online($email);
@@ -69,6 +83,27 @@ function reg_save() {
 	$smarty->assign('tip_msg', _('You have registerd successfully'));
 	$smarty->assign('redirect_url', 'account.php');
 	$smarty->display('tip.html');
+}
+
+/**
+ * 检查邀请码是否有效
+ * 
+ * @return	成功返回 true，失败返回 false
+ */
+function reg_checkinvite($code) {
+	$qcode = addslashes($code);
+	
+	$res = db_quick_fetch('invite', "WHERE code='$qcode'");
+	if (count($res) <= 0) {
+		return false;
+	}
+	
+	if ($res[0]['utime'] == null) {
+		return true;
+	}
+	else {
+		return false;
+	}
 }
 
 ?>

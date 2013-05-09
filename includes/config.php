@@ -13,6 +13,13 @@ define('USER_SESSIONTIME', 3600);	/// 用户最长不活动时间
 define('LOGIN_MAXTRIES_WITHOUT_CAPTCHA', 5);	/// 同一个 IP 登录失败超过多少次后，就必须使用验证码进行登录验证
 define('LOGIN_FAIL_ANNEAL_TIME', 180);	/// 同一个 IP 登录失败超过阈值后，需要等待多长时间以后才可以输验证码，单位（秒）
 
+
+/// 注册邀请码功能
+define('INVITECODE_ENABLED', 1);	/// 注册是否需要邀请码
+define('INVITECODE_MINLEN', 6);	/// 邀请码最小长度
+define('INVITECODE_MAXINUM', 2);	/// 用户最多可以拥有的邀请码数量
+
+
 /// SMTP 服务器信息
 define('SMTP_HOST', 'localhost');
 define('SMTP_PORT', 25);

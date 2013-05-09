@@ -4,9 +4,15 @@ require_once('includes/header.php');
 $user = user_isonline();
 
 if ($user === false) {
-	$smarty->assign('tip_title', _('Login Required'));
-	$smarty->assign('tip_msg', _('You have to login to access Server List'));
-	$smarty->display('tip.html');
+	if (!isset($_GET['json'])) {
+		$smarty->assign('tip_title', _('Login Required'));
+		$smarty->assign('tip_msg', _('You have to login to access Server List'));
+		$smarty->display('tip.html');
+	}
+	else {
+		echo json_encode(array('error' => _('You have to login to access Server List')));
+	}
+	
 	die();
 }
 

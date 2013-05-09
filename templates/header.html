@@ -36,7 +36,11 @@
 			<a href="account.php">{_("VPN Account")}</a>
 			
 			{if $user.email != ''}
-			<a href="server.php">{_("Servers")}</a>
+				<a href="server.php">{_("Servers")}</a>
+				
+				{if $INVITECODE_ENABLED == 1}
+				<a href="invitecode.php">{_("Invites")}</a>
+				{/if}
 			{/if}
 			
 			<a href="help.php">{_("Help")}</a>

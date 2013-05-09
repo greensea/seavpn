@@ -174,4 +174,85 @@ function recaptcha_verify() {
 	return false;
     }
 }
+
+/**
+ * 为 $uid 用户生成一个邀请码
+ * 
+ * 从 INVITECODE_MINLEN 长度开始生成邀请码，如果生成的邀请码已经存在了，则生成一个更长的邀请码，直到得到在数据库中不存在的邀请码为止
+ * 
+ * @return 成功返回验证码，失败返回 false
+ */
+function invite_generate($uid) {
+	$uid = (int)$uid;
+	$code = '';
+	
+	if ($uid == 0) {
+		vpn_log('Invalid argument: $uid == 0');
+		return false;
+	}
+	
+	/// 没人会使用 99 位长度的验证码吧
+	for ($len = INVITECODE_MINLEN; $len < 99; $len++) {
+		$code = invite_randstr($len);
+	
+		$res = db_quick_fetch('invite', "WHERE code='$code'");
+		if (count($res) == 0) {
+			break;
+		}
+	}
+	
+	if ($len >= 99) {
+		vpn_log("Invite code out of length: $len");
+		return false;
+	}
+	
+	
+	/// FIXME: 要不要检查用户是否存在捏？
+	
+	$ts = time();
+	$qcode = addslashes($code);
+	$sql = "INSERT INTO invite (code, uid, ctime, utime) VALUES ('$qcode', $uid, $ts, NULL)";
+	db_query($sql);
+	
+	return $code;
+}
+
+/**
+ * 生成一个随机字符串作为邀请码
+ * 
+ * @param len	字符串长度
+ */
+function invite_randstr($len) {
+    $ret = '';
+    
+    for ($i = 0; $i < $len; $i++) {
+	$r = rand(1, 62);
+	$c = '';
+	
+	if ($r >= 1 && $r <= 26) {
+	    $c = chr(ord('a') + ($r - 1));
+	}
+	else if ($r >= 27 && $r <= 52) {
+	    $c = chr(ord('A') + ($r - 27));
+	    
+	}
+	else {
+	    $c = chr(ord('0') + ($r - 53));
+	}
+	
+	$ret .= $c;
+    }
+    
+    return $ret;
+}
+
+/**
+ * 将邀请码设置为已经使用过了
+ */
+function invite_use($code) {
+	$qcode = addslashes($code);
+	
+	db_quick_update('invite', "WHERE code='$qcode'", array('utime' => time()));
+}
+
 ?>

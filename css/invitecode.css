@@ -1,0 +1,25 @@
+table, tr, td, th {
+	border: 1px solid #E4F7FA;
+}
+
+table {
+	width: 68%;
+	margin-left: 19%;
+	border-collapse: collapse;
+}
+table th {
+	background-image: url("../imgs/th_bg.png");
+	border: 1px solid #ccf;
+}
+table td {
+	padding: 0.5em;
+}
+
+.code {
+	font-size: 1.5em;
+}
+
+.used {
+	text-decoration: line-through;
+	color: #888;
+}

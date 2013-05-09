@@ -1,0 +1,45 @@
+{assign var="title" value={_("Invite Code")}}
+{append var="css" value="css/tip.css"}
+{append var="css" value="css/invitecode.css"}
+{include file="header.html"}
+
+
+<div class="tip invitecode">
+	<div class="tiptitle">{_("Invite Codes")}</div>
+	<p>{_("These are your invite codes, you can gave one to your friend for them to register.")}</p>
+	
+	<table>
+		<tr>
+			<th>{_("Invite Code")}</th>
+			<th>{_("Invite Link")}</th>
+			<th>{_("Status")}</th>
+		</tr>
+		
+		{foreach $codes as $code}
+		<tr>
+			{if $code.used == 1}
+				<td class="code used">{$code.code}</td>
+			{else}
+				<td class="code">{$code.code}</td>
+			{/if}
+			
+			<td>
+				<a href="reg.php?invitecode={$code.code}">Register Link</a>
+			</td>
+			
+			<td>
+				{if $code.used == 1}
+				{_("Used")}
+				{else}
+				{_("Available")}
+				{/if}
+			</td>
+		</tr>
+		{/foreach}
+	</table>
+	
+</div>
+
+
+
+{include file="footer.html"}
