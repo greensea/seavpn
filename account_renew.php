@@ -35,6 +35,9 @@ if ($order === false) {
 	die();
 }
 
+/// 创建订单是不会设置 VPNID 的，所以需要手动设置
+order_setvpnid($order['orderid'], $aid);
+
 $amt = vpn_afford($service['id'], $user['email']);
 
 if ($amt < 0) {

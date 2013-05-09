@@ -193,4 +193,16 @@ function order_redirect($oid) {
 	return paypal_redirect($oid);
 }
 
+
+/**
+ * 设置订单对应的 VPN 帐号编号
+ */
+function order_setvpnid($oid, $vpnid) {
+	$oid = (int)$oid;
+	$vpnid = (int)$vpnid;
+	
+	db_quick_update('order', "WHERE id=$oid", array('vpnid' => $vpnid));
+	
+	return true;
+}
 ?>
