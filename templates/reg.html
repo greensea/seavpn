@@ -23,6 +23,16 @@
 			<input type="password" name="loginpass2" class="inputtext" />
 		</div>
 		
+		<div class="desc">{_("CAPTCHA:")}</div>
+		<script type="text/javascript">
+		var RecaptchaOptions = {
+			theme : 'white'
+		};
+		</script>
+		<div>
+		{$recaptcha_html}
+		</div>
+		
 		<div class="submitform">
 			<input type="submit" value='{_("Register")}' />
 		</div>

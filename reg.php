@@ -1,5 +1,6 @@
 <?php
 require_once('includes/header.php');
+require_once('includes/recaptcha.php');
 
 $ack = @$_GET['action'];
 switch ($ack) {
@@ -22,6 +23,8 @@ function reg_main($error_msg = '') {
 		$smarty->assign($key, $value);
 	}
 	$smarty->assign('error_msg', $error_msg);
+	
+	$smarty->assign('recaptcha_html', recaptcha_get_html(RECAPTCHA_PUBLIC_KEY));
 	
 	$smarty->display('reg.html');
 }
@@ -47,6 +50,12 @@ function reg_save() {
 		reg_main(_('Password does not match'));
 		return false;
 	}
+	
+	if (recaptcha_verify() !== true) {
+		reg_main(_('The CAPTCHA you enter is not correct'));
+		return false;
+	}
+	
 	
 	$ret = user_add($email, $pass);
 	if ($ret !== true) {

@@ -20,6 +20,20 @@
 			<input type="password" name="loginpass" class="inputtext"  />
 		</div>
 		
+		{if $recaptcha_html != ""}
+			<!-- 如果需要图灵测试的话 -->
+			<div class="desc">{_("CAPTCHA:")}</div>
+			<script type="text/javascript">
+			var RecaptchaOptions = {
+				theme : 'white'
+			};
+			</script>
+			
+			<div>
+			{$recaptcha_html}
+			</div>
+		{/if}
+		
 		<div class="submitform">
 			<input type="submit" value='{_("Login")}' />
 			<!--
@@ -29,6 +43,7 @@
 			</label>
 			-->
 		</div>
+		
 	</form>
 </div>
 

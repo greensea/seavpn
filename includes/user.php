@@ -53,7 +53,7 @@ function user_enable($uid, $enabled) {
  * 
  * @return	成功返回 true，失败返回错误信息
  */
-function user_validate($email, $pass) {
+function user_verify($email, $pass) {
 	$ret = _('Invalid usernamem or password');
 	
 	$qemail = addslashes($email);
@@ -143,7 +143,7 @@ function user_isonline() {
 	/// 如果用户在线就更新用户信息
 	if ($user != false) {
 		$user = user_get($user['email']);
-		cache_set("sid_$sid", $user);
+		cache_set("sid_$sid", $user, USER_SESSIONTIME);
 	}
 	
 	return $user;
