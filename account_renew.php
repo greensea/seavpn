@@ -27,8 +27,16 @@ if (count($services) <= 0) {
 }
 $service = $services[0];
 
+
+$amt = vpn_afford($service['id'], $user['email']);
+
 /// 开始支付过程
-$order = order_new($service['id']);
+if ($amt <= 0) {
+	$order = order_new($service['id'], -$amt);
+}
+else {
+	$order = order_new($service['id']);
+}
 if ($order === false) {
 	vpn_log("Can not get order via order_new('{$service['id']}')");
 	renew_error(_('Can not renew, please contact us for help'));
@@ -38,7 +46,6 @@ if ($order === false) {
 /// 创建订单是不会设置 VPNID 的，所以需要手动设置
 order_setvpnid($order['orderid'], $aid);
 
-$amt = vpn_afford($service['id'], $user['email']);
 
 if ($amt < 0) {
 	/// 余额不足时，显示付款页面，并在付款成功后继续开通帐号操作
