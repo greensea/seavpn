@@ -249,10 +249,13 @@ function invite_randstr($len) {
 /**
  * 将邀请码设置为已经使用过了
  */
-function invite_use($code) {
+function invite_use($code, $by) {
 	$qcode = addslashes($code);
+	$by = (int)$by;
 	
-	db_quick_update('invite', "WHERE code='$qcode'", array('utime' => time()));
+	db_quick_update('invite', "WHERE code='$qcode'", array('utime' => time(),
+															'usedby' => $by)
+					);
 }
 
 ?>
