@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: seavpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-09 14:48+0800\n"
-"PO-Revision-Date: 2013-05-09 14:51+0800\n"
+"POT-Creation-Date: 2013-05-10 09:45+0800\n"
+"PO-Revision-Date: 2013-05-10 10:04+0800\n"
 "Last-Translator: greensea <gs@bbxy.net>\n"
 "Language-Team: seavpn <gs@bbxy.net>\n"
 "Language: \n"
@@ -696,6 +696,10 @@ msgstr "可以使用"
 #: templates/reg.html:26
 msgid "Invite Code:"
 msgstr "邀请码："
+
+#: templates/invitecode.html:27
+msgid "Register Link"
+msgstr "邀请注册链接"
 
 #~ msgid ""
 #~ "Download: {$vpn.stat_monthly.inbandstr} Upload: {$vpn.stat_monthly."
