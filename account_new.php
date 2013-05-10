@@ -122,7 +122,7 @@ function account_pay($name, $pass, $serviceid) {
 	/// 3. 账户余额足够，开通帐号
 	//print_r($name);
 	//print_r($service);
-	vpn_renew($name, $service['duration']);
+	vpn_renew($name, $service['duration'], $service['radiusgroup']);
 	
 	/// 4. 发货（扣款）
 	order_delivery($order['orderid']);

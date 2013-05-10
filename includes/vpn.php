@@ -172,9 +172,10 @@ function vpn_add($name, $pass, $uid, $serviceid = -1) {
  * 
  * @param $name	VPN 登录名
  * @param $quatity	续费时长，单位（秒）
+ * @param $group	用户所属的 RADIUS 用户组，留空则忽略此参数。仅仅在新增 RADIUS 用户的时候此参数才有用
  * @return	成功返回 true，失败返回错误信息
  */
-function vpn_renew($name, $quatity) {
+function vpn_renew($name, $quatity, $group = '') {
 	$quatity = (int)$quatity;
 	$qname = addslashes($name);
 	
@@ -219,6 +220,12 @@ function vpn_renew($name, $quatity) {
 	if (count($res) == 0) {
 		$sql = "INSERT INTO radius.radcheck (op, attribute, username, value) VALUES (':=', 'Cleartext-Password', '$qname', '$qpass')";
 		db_query($sql);
+		
+		if ($group != '') {
+			$qgroup = addslashes($group);
+			$sql = "INSERT INTO radius.radusergroup (username, groupname) VALUES ('$qname', '$qgroup')";
+			db_query($sql);
+		}
 	}
 	
 	return true;
@@ -287,6 +294,9 @@ function vpn_del($username) {
 	$qname = addslashes($username);
 	
 	$sql = "DELETE FROM  radius.radcheck WHERE username='$qname'";
+	db_query($sql);
+	
+	$sql = "DELETE FROM radius.radusergroup WHERE username='$qname'";
 	db_query($sql);
 	
 	return true;

@@ -73,7 +73,7 @@ function done_transaction($oid, $vpnid) {
 	/// 下面的代码和 account_new.php 中的代码一致
 
 	/// 3. 账户余额足够，开通帐号
-	vpn_renew($vpn['username'], $service['duration']);
+	vpn_renew($vpn['username'], $service['duration'], $service['radiusgroup']);
 		
 	/// 4. 发货（在 raidus 中设置帐号），并扣款
 	order_delivery($oid);
