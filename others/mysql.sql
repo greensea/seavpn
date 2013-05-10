@@ -150,6 +150,7 @@ CREATE TABLE IF NOT EXISTS `server` (
 CREATE TABLE IF NOT EXISTS `invite` (
   `code` char(9) NOT NULL COMMENT '邀请码。9位长度可以容纳超过 10^16 个邀请码',
   `uid` int(11) NOT NULL COMMENT '邀请码所属的用户编号',
+  `usedby` int(11) NOT NULL DEFAULT '0' COMMENT '邀请码被谁使用了，对应使用这个邀请码注册的用户编号',
   `ctime` int(11) NOT NULL COMMENT '邀请码创建时间',
   `utime` int(11) DEFAULT NULL COMMENT '邀请码使用时间，为 NULL 说明邀请码还没有使用',
   PRIMARY KEY (`code`),

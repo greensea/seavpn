@@ -72,9 +72,9 @@ function reg_save() {
 		return false;
 	}
 	
-	
+	$user = user_get($email);
 	if (INVITECODE_ENABLED == 1) {
-		invite_use($_POST['invitecode']);
+		invite_use($_POST['invitecode'], $user['id']);
 	}
 	
 	user_online($email);
