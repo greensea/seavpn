@@ -169,7 +169,9 @@ function user_add($email, $pass) {
 		return _('The user/email is exists');
 	}
 	
-	$sql = "INSERT INTO account (email, regtime, loginpass) VALUES ('$qemail', $ts, '$qpass')";
+	$credit = DEFAULT_USER_CREDIT * 100;
+	
+	$sql = "INSERT INTO account (email, regtime, loginpass, credit) VALUES ('$qemail', $ts, '$qpass', $credit)";
 	
 	$res = db_query($sql);
 	if ($res == false) {

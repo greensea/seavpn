@@ -43,7 +43,7 @@ define('DB_NAME', 'seavpn');
 
 
 /// 用户信息以及财务信息
-define('DEFAULT_USER_CREDIT', 10.0);	/// 默认信用额度
+define('DEFAULT_USER_CREDIT', 109.0);	/// 默认信用额度
 
 define('CURRENCY_CODE', 'USD');	/// 货币种类，可选值有 USD，RMB
 define('CURRENCY_SYMBOL', '$');	/// 货币单位符号
