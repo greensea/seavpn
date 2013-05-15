@@ -19,6 +19,10 @@ $smarty->setConfigDir(BASEPATH . 'compile');
 $language = DEFAULT_LANGUAGE;
 
 $langstr = $_SERVER['LANGUAGE'] . ' ' . $_SERVER['LANG'];
+if (trim($langstr) == 0) {
+	$langstr = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
+	$langstr = str_replace('-', '_', $langstr);
+}
 foreach ($LANGUAGE_ORDER as $key => $value) {
 	if (stristr($langstr, $value) !== false) {
 		$language = $value;
