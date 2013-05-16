@@ -10,8 +10,19 @@
 	<tr>
 		<th>{_("Address")}</th>
 		<th>{_("Location")}</th>
-		<th>{_("PPTP support")}</th>
-		<th>{_("L2TP support")}</th>
+		
+		{if $DISPLAY_PPTP == 1}
+		<th>{_("PPTP")}</th>
+		{/if}
+		
+		{if $DISPLAY_L2TP == 1}
+		<th>{_("L2TP")}</th>
+		{/if}
+		
+		{if $DISPLAY_SSH == 1}
+		<th>{_("SSH")}</th>
+		{/if}
+		
 		<th>{_("R.T. Traffic")}</th>
 		<th>{_("Uptime")}</th>
 		<th>{_("Online")}</th>
@@ -30,6 +41,7 @@
 		<td>{$server.address}</td>
 		<td>{$server.location}</td>
 		
+		{if $DISPLAY_PPTP == 1}
 		<!-- PPTP 支持 -->
 		<td>
 			{if $server.pptp == 1}
@@ -38,7 +50,9 @@
 			<span class="notsupported">{_("Not Supported")}</span>
 			{/if}
 		</td>
+		{/if}
 		
+		{if $DISPLAY_L2TP == 1}
 		<!-- L2TP 支持 -->
 		<td>
 			{if $server.l2tp == 1}
@@ -56,6 +70,24 @@
 			
 
 		</td>
+		{/if}
+		
+		{if $DISPLAY_SSH == 1}
+		<td>
+			{if $server.ssh == 1}
+				<span class="supported">{_("Supported")}</span>
+				
+				{if $user.email == '' || $server.ssh_port != 22}
+				<!-- 未登录用户不能查看 SSH 端口号 -->
+				<div>
+					{_("SSH Port:")}<span style="padding-left: 0.2em;" class="data">{$server.ssh_port}</span>
+				</div>
+				{/if}
+			{else}
+				<span class="notsupported">{_("Not Supported")}</span>
+			{/if}
+		</td>
+		{/if}
 		
 		<!-- 实时流量 -->
 		<td name="rtrate">{$server.rtratestr}</td>

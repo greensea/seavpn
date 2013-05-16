@@ -110,6 +110,7 @@ CREATE TABLE `server` (
   `location` varchar(500) NOT NULL DEFAULT '' COMMENT '服务器所在地址及网络服务商信息',
   `pptp` tinyint(4) NOT NULL,
   `l2tp` tinyint(4) NOT NULL,
+  `ssh` tinyint(11) NOT NULL DEFAULT '0',
   `remark` varchar(1000) NOT NULL DEFAULT '',
   `enabled` tinyint(4) NOT NULL DEFAULT '1' COMMENT '使能标志',
   `rxrate` int(11) NOT NULL DEFAULT '0' COMMENT '出站速率，单位（bps）',
@@ -117,6 +118,7 @@ CREATE TABLE `server` (
   `uptime` int(11) NOT NULL DEFAULT '0',
   `heartbeat` int(11) NOT NULL DEFAULT '0' COMMENT '最后一次心跳的时间，单位（UNIX 时间戳）',
   `l2tp_psk` varchar(50) NOT NULL,
+  `ssh_port` int(11) NOT NULL DEFAULT '22',
   PRIMARY KEY (`address`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 

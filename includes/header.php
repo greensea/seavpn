@@ -54,6 +54,9 @@ $smarty->assign('SERVER_NAME', $_SERVER['SERVER_NAME']);
 $smarty->assign('SITE_NAME', SITE_NAME);
 $smarty->assign('INVITECODE_ENABLED', INVITECODE_ENABLED);
 $smarty->assign('CURRENCY_SYMBOL', CURRENCY_SYMBOL);
+$smarty->assign('DISPLAY_PPTP', DISPLAY_PPTP);
+$smarty->assign('DISPLAY_L2TP', DISPLAY_L2TP);
+$smarty->assign('DISPLAY_SSH', DISPLAY_SSH);
 ?>
 
 
