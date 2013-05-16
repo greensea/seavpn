@@ -60,3 +60,16 @@ span, tr, td, th, table {
 	color: #5B8EFF;
 }
 
+
+.servers .headerSortDown:after {
+	content: " v";
+	color: #fff;
+	font-weight: bold;
+	text-shadow: 0 0 2px #000;
+}
+.servers .headerSortUp:after {
+	content: " ^";
+	color: #fff;
+	font-weight: bold;
+	text-shadow: 0 0 2px #000;
+}

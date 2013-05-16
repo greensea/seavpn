@@ -1,121 +1,130 @@
 {append var="css" value="css/server.css"}
 {append var="js" value="js/server.js"}
 {append var="js" value="js/jquery.js"}
+{append var="js" value="js/jquery.tablesorter.js"}
 {assign var="title" value={_("Servers")}}
 {include file="header.html"}
 
 <h2>{_("Server Status")}</h2>
 
-<table cellpadding="1" class="servers">
-	<tr>
-		<th>{_("Address")}</th>
-		<th>{_("Location")}</th>
+<table cellpadding="1" class="servers tablesorter">
+	<thead>
+		<tr>
+			<th>{_("Address")}</th>
+			<th>{_("Location")}</th>
 		
-		{if $DISPLAY_PPTP == 1}
-		<th>{_("PPTP")}</th>
-		{/if}
-		
-		{if $DISPLAY_L2TP == 1}
-		<th>{_("L2TP")}</th>
-		{/if}
-		
-		{if $DISPLAY_SSH == 1}
-		<th>{_("SSH")}</th>
-		{/if}
-		
-		<th>{_("R.T. Traffic")}</th>
-		<th>{_("Uptime")}</th>
-		<th>{_("Online")}</th>
-		<th>{_("Remark")}</th>
-	</tr>
-	
-	{foreach $servers as $server}
-	
-	{if $server.isonline == 1}
-		{assign var="statusstr" value="online"}
-	{else}
-		{assign var="statusstr" value="offline"}
-	{/if}
-	
-	<tr class="{$statusstr}_bg">
-		<td>{$server.address}</td>
-		<td>{$server.location}</td>
-		
-		{if $DISPLAY_PPTP == 1}
-		<!-- PPTP 支持 -->
-		<td>
-			{if $server.pptp == 1}
-			<span class="supported">{_("Supported")}</span>
-			{else}
-			<span class="notsupported">{_("Not Supported")}</span>
+			{if $DISPLAY_PPTP == 1}
+			<th>{_("PPTP")}</th>
 			{/if}
-		</td>
-		{/if}
 		
-		{if $DISPLAY_L2TP == 1}
-		<!-- L2TP 支持 -->
-		<td>
-			{if $server.l2tp == 1}
+			{if $DISPLAY_L2TP == 1}
+			<th>{_("L2TP")}</th>
+			{/if}
+		
+			{if $DISPLAY_SSH == 1}
+			<th>{_("SSH")}</th>
+			{/if}
+		
+			<th>{_("R.T. Traffic")}</th>
+			<th>{_("Uptime")}</th>
+			<th>{_("Online")}</th>
+			<th>{_("Remark")}</th>
+		</tr>
+	</thead>
+	
+	<tbody>
+		{foreach $servers as $server}
+	
+		{if $server.isonline == 1}
+			{assign var="statusstr" value="online"}
+		{else}
+			{assign var="statusstr" value="offline"}
+		{/if}
+	
+		<tr class="{$statusstr}_bg">
+			<td>{$server.address}</td>
+			<td>{$server.location}</td>
+		
+			{if $DISPLAY_PPTP == 1}
+			<!-- PPTP 支持 -->
+			<td>
+				{if $server.pptp == 1}
 				<span class="supported">{_("Supported")}</span>
-				
-				{if $user.email != ""}
-				<!-- 未登录用户不能查看 L2TP 密钥 -->
-				<div>
-					{_("IPSec Pre-shared key:")}<span style="padding-left: 0.2em;" class="data">{$server.l2tp_psk}</span>
-				</div>
-				{/if}
-			{else}
+				{else}
 				<span class="notsupported">{_("Not Supported")}</span>
+				{/if}
+			</td>
 			{/if}
+		
+			{if $DISPLAY_L2TP == 1}
+			<!-- L2TP 支持 -->
+			<td>
+				{if $server.l2tp == 1}
+					<span class="supported">{_("Supported")}</span>
+				
+					{if $user.email != ""}
+					<!-- 未登录用户不能查看 L2TP 密钥 -->
+					<div>
+						{_("IPSec Pre-shared key:")}<span style="padding-left: 0.2em;" class="data">{$server.l2tp_psk}</span>
+					</div>
+					{/if}
+				{else}
+					<span class="notsupported">{_("Not Supported")}</span>
+				{/if}
 			
 
-		</td>
-		{/if}
+			</td>
+			{/if}
 		
-		{if $DISPLAY_SSH == 1}
-		<td>
-			{if $server.ssh == 1}
-				<span class="supported">{_("Supported")}</span>
+			{if $DISPLAY_SSH == 1}
+			<td>
+				{if $server.ssh == 1}
+					<span class="supported">{_("Supported")}</span>
 				
-				{if $user.email == '' || $server.ssh_port != 22}
-				<!-- 未登录用户不能查看 SSH 端口号 -->
-				<div>
-					{_("SSH Port:")}<span style="padding-left: 0.2em;" class="data">{$server.ssh_port}</span>
-				</div>
+					{if $user.email == '' || $server.ssh_port != 22}
+					<!-- 未登录用户不能查看 SSH 端口号 -->
+					<div>
+						{_("SSH Port:")}<span style="padding-left: 0.2em;" class="data">{$server.ssh_port}</span>
+					</div>
+					{/if}
+				{else}
+					<span class="notsupported">{_("Not Supported")}</span>
 				{/if}
-			{else}
-				<span class="notsupported">{_("Not Supported")}</span>
+			</td>
 			{/if}
-		</td>
-		{/if}
 		
-		<!-- 实时流量 -->
-		<td name="rtrate">{$server.rtratestr}</td>
+			<!-- 实时流量 -->
+			<td name="rtrate">{$server.rtratestr}</td>
 		
-		<!-- 在线时间 -->
-		<td name="uptime">{$server.uptimestr}</td>
+			<!-- 在线时间 -->
+			<td name="uptime">{$server.uptimestr}</td>
 		
-		<!-- 在线情况 -->
-		<td name="status">
-			{if $server.isonline == 1}
-			<span name="online" class="online">{_("Online")}</span>
-			<span name="offline" class="offline" style="display: none;">{_("Offline")}</span>
-			{else}
-			<span name="online" class="online" style="display: none;">{_("Online")}</span>
-			<span name="offline" class="offline">{_("Offline")}</span>
-			{/if}
-		</td>
+			<!-- 在线情况 -->
+			<td name="status">
+				{if $server.isonline == 1}
+				<span name="online" class="online">{_("Online")}</span>
+				<span name="offline" class="offline" style="display: none;">{_("Offline")}</span>
+				{else}
+				<span name="online" class="online" style="display: none;">{_("Online")}</span>
+				<span name="offline" class="offline">{_("Offline")}</span>
+				{/if}
+			</td>
 		
-		<!-- 备注 -->
-		<td>{$server.remark}</td>
-	</tr>
+			<!-- 备注 -->
+			<td>{$server.remark}</td>
+		</tr>
 	
-	{/foreach}
+		{/foreach}
+	
+	</tbody>
 	
 </table>
 
 <script type="text/javascript">
 setTimeout("servers_refresh(5000)", 5000);
+$(document).ready( function () {
+	$(".servers").tablesorter();
+});
 </script>
 
 {include file="footer.html"}
