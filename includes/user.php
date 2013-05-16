@@ -29,7 +29,7 @@ function user_mod($uid, $param) {
  * @return	成功返回 true，否则返回错误信息
  */
 function user_passwd($uid, $pass) {
-	return user_mod($uid, array('loginpass' => $pass));
+	return user_mod($uid, array('loginpass' => user_encrypt($pass)));
 }
 
 /**
