@@ -29,7 +29,7 @@ function reg_main($error_msg = '') {
 	
 	$smarty->assign('error_msg', $error_msg);
 	
-	$smarty->assign('recaptcha_html', recaptcha_get_html(RECAPTCHA_PUBLIC_KEY));
+	$smarty->assign('recaptcha_html', recaptcha_get_html(RECAPTCHA_PUBLIC_KEY, null, true));
 	
 	$smarty->display('reg.html');
 }

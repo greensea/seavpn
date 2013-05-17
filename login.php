@@ -20,7 +20,7 @@ function login_main() {
 	global $smarty;
 	
 	if (login_needcaptcha()) {
-		$smarty->assign('recaptcha_html', recaptcha_get_html(RECAPTCHA_PUBLIC_KEY));
+		$smarty->assign('recaptcha_html', recaptcha_get_html(RECAPTCHA_PUBLIC_KEY, null, true));
 	}
 	
 	$smarty->display('templates/login.html');
