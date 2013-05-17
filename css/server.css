@@ -16,6 +16,10 @@
 	border: 1px solid #ccf;
 }
 
+.servers tr th {
+	cursor: pointer;
+}
+
 span, tr, td, th, table {
 	transition: all 1s ease 0.01s;
 }
