@@ -44,6 +44,7 @@ nav a:hover {
 nav a:hover .usercredit {
 	opacity: 0.9;
 	color: #000;
+	visibility: visible;
 }
 
 .usercredit {
@@ -58,6 +59,7 @@ nav a:hover .usercredit {
 	padding: 0.5em;
 	text-shadow: none;
 	line-height: 1.5em;
+	visibility: hidden;
 }
 .usercredit span {
 	float: right;
