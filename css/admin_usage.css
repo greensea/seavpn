@@ -1,0 +1,93 @@
+h1 {
+	background: linear-gradient(#45B5DA, #0382AD) repeat scroll 0 0 transparent;
+	margin: -2% -1% 0 -1%;
+	padding: 2%;
+	border-radius: 10px;
+}
+
+menu a {
+	border-radius: 10px;
+	margin: auto 0.4em;
+	padding: 0.2em 0.5em;
+/*	background: linear-gradient(#bfb, #0c0, #bfb) repeat scroll 0 0 transparent;*/
+	color: #44f;
+	font-weight: bold;
+	background-color: #8f8;
+	transition: all 0.5s ease 0.01s;
+}
+menu a:hover {
+/*	background: linear-gradient(#dfd, #0f0, #dfd) repeat scroll 0 0 transparent;*/
+	background-color: #66f;
+	color: yellow;
+}
+
+.list {
+	width: 100%;
+}
+
+a, a:hover {
+	text-decoration: none;
+}
+
+.list caption {
+	background-color: #cef;
+	font-style: italic;
+	margin: 0.5em 0;
+	padding: 0 0.5em;
+	text-align: left;
+	border-radius: 10px;
+}
+
+.list tr td {
+	transition:all .2s ease 0.01s;
+}
+.list tr:hover td {
+	background-color: #ddd;
+}
+
+.list th {
+	font-weight: bold;
+	text-align: center;
+	background: linear-gradient(#48d8fc, #3493be, #48d8fc) repeat scroll 0 0 transparent;
+}
+.list td {
+	padding: 0 0.2em;
+}
+
+
+/* 流量信息 */
+.list .band {
+	text-align: center;
+	padding: 0;
+}
+.band_upload, .band_download {
+	text-align: center;
+	vertical-align: middle;
+	margin: 0;
+	overflow: visible;
+	white-space: nowrap;
+}
+.band_total {
+	/* 用边框显示上行流量 */
+	border-bottom: 2px solid #e55;
+	margin-bottom: -2px;
+}
+.band_upload {
+	text-align: right;
+	float: right;
+	padding: 2px 0.2em 0 0;
+	color: #f88;
+}
+.band_upload:after {
+	content: "↑";
+}
+.band_download {
+	border-top: 2px solid #55e;
+	text-align: left;
+	padding-left: 0.2em;
+	color: #55f;
+}
+.band_download:before {
+	content: "↓";
+}
+

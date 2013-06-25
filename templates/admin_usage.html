@@ -1,0 +1,53 @@
+{assign var="title" value="VPN Account Usage"}
+{append var="css" value="css/admin_usage.css"}
+{include file="header.html"}
+
+    
+    <menu>
+		<a href="?">所有记录</a>
+        <a href="?group=user">按用户</a>
+        <a href="?group=host">按主机</a>
+        <a href="?group=userhost">按用户主机</a>
+    </menu>
+
+
+    <table class="list" border="1" cellspacing="0">
+        <caption>共 {$accts|count} 条记录</caption>
+        <tr>
+            <th style="width: 10em;">用户名</th>
+            <th style="width: 8em;">客户端地址</th>
+            <th style="width: 9em;">登陆服务器</th>
+            <th style="width: 10em;">登录时间</th>
+            <th style="width: 10em;">退出时间</th>
+            <th style="width: 8em;">在线时长</th>
+            <th style="width: 4em;">服务类型</th>
+            <th>使用流量（下载/上传）</th>
+        </tr>
+
+		{foreach $accts as $acct}
+            <tr>
+                <td>{$acct.username}</td>
+                <td>{$acct.callingstationid}</td>
+                <td>{$acct.nasipaddress}</td>
+                <td>{$acct.connecttimestr}</td>
+                <td>{$acct.disconnecttimestr}</td>
+                <td>{$acct.onlinetimestr}</td>
+                <td style="text-align: center;">{$acct.servicetype}</td>
+                <td class="band">
+                    <div class="band_total">共使用 {$acct.bandtotalstr}</div>
+                    <div class="band_upload">{$acct.inbandstr}</div>
+                    <div class="band_download" style="width: {$acct.out_ratio}%;">{$acct.outbandstr}</div>
+                </td>
+
+            </tr>
+        {/foreach}
+
+    </table>
+
+
+    <div>
+        <div>数据库查询耗时 {$query_time} 毫秒，页面执行耗时 {$page_time}毫秒</div>
+    </div>
+
+
+{include file="footer.html"}

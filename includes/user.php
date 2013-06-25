@@ -150,6 +150,26 @@ function user_isonline() {
 }
 
 /**
+ * 当前登录用户是否是管理员
+ * 
+ * @return	TRUE 或 FALSE
+ */
+function user_isadmin() {
+	$user = user_isonline();
+	if ($user === FALSE) {
+		return false;
+	}
+	
+	$res = db_quick_fetch('admin', "WHERE uid={$user['id']}");
+	if (count($res) == 1) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+/**
  * 新建用户
  * 
  * @return 成功返回 true，失败返回错误信息
