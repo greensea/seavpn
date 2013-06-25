@@ -160,3 +160,17 @@ CREATE TABLE `vpnaccount` (
   KEY `uid` (`uid`),
   KEY `username` (`username`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `admin`
+--
+
+CREATE TABLE IF NOT EXISTS `admin` (
+  `uid` int(11) NOT NULL,
+  PRIMARY KEY (`uid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='管理员列表';
+
+
